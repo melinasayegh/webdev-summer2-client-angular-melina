@@ -12,7 +12,6 @@ const W_L_API_URL = 'https://webdev-server-java-melina.herokuapp.com/api/lesson/
 export class CourseNavigatorServiceClient {
 
   // COURSES
-  // find course by id
   findCourseById(courseId) {
     return fetch(COURSE_API_URL + courseId)
       .then(response => response.json());
@@ -67,6 +66,7 @@ export class CourseNavigatorServiceClient {
       .then(response => response.json());
   }
 
+  // WIDGETS
   findAllWidgets() {
     return fetch(WIDGET_API_URL)
       .then(response => response.json());
