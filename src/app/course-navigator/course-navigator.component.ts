@@ -1,35 +1,48 @@
 import { Component, OnInit } from '@angular/core';
-import {CourseNavigatorServiceClient} from '../services/CourseNavigatorServiceClient';
+import {CourseNavigatorServiceClient} from '../services/coursenavigator.service.client';
 
 @Component({
   selector: 'app-course-navigator',
   templateUrl: './course-navigator.component.html',
   styleUrls: ['./course-navigator.component.css']
 })
+
 export class CourseNavigatorComponent implements OnInit {
 
-  constructor(private service: CourseNavigatorServiceClient) { }
-  courses = [];
-  modules = [];
-  lessons = [];
-  widgets = [];
-  selectedCourseId = 0;
 
-  selectCourse(courseId) {
-    this.selectedCourseId = courseId;
+  courses = [];
+  selectedCourse = {};
+  selectedModule = {};
+  selectedLesson = {};
+  selectedWidget = {};
+
+  constructor(private courseService: CourseNavigatorServiceClient) { }
+
+
+  selectCourse(course) {
+    this.selectedCourse = course;
+    this.selectedModule = {};
+    this.selectedLesson = {};
+    this.selectedWidget = {};
+  }
+
+  selectModule(module) {
+    this.selectedModule = module;
+    this.selectedLesson = {};
+    this.selectedWidget = {};
+  }
+
+  selectLesson(lesson) {
+    this.selectedLesson = lesson;
+    this.selectedWidget = {};
+  }
+
+  selectWidget(widget) {
+    this.selectedWidget = widget;
   }
 
   ngOnInit() {
-    this.service.findAllCourses()
+    this.courseService.findAllCourses()
       .then(courses => this.courses = courses);
-
-    this.service.findAllModules()
-      .then(modules => this.modules = modules);
-
-    this.service.findAllLessons()
-      .then(lessons => this.lessons = lessons);
-
-    this.service.findAllWidgets()
-      .then(widgets => this.widgets = widgets);
   }
 }

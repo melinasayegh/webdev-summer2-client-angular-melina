@@ -1,3 +1,7 @@
+.navigator-div {
+  margin-right: 50px;
+}
+
 .list-group-item.active.webdev {
   z-index: 2;
   color: #fff;
