@@ -1,3 +1,46 @@
-<p>
-  course-navigator works!
-</p>
+<h1>Navigator</h1>
+
+<div class="row">
+  <div class="col-3">
+    <ul class="list-group">
+      <li class="list-group-item active">
+        Courses</li>
+      <li class="list-group-item webdev"
+          *ngFor="let course of courses">
+        {{course.title}}</li>
+    </ul>
+  </div>
+  <div class="col-3">
+    <ul class="list-group">
+      <li class="list-group-item active">
+        Modules
+      </li>
+      <li class="list-group-item webdev"
+          *ngFor="let module of modules">
+        {{module.title}}</li>
+    </ul>
+  </div>
+  <div class="col-3">
+    <ul class="list-group">
+      <li class="list-group-item active">
+        Lessons
+      </li>
+      <li class="list-group-item webdev"
+          *ngFor="let lesson of lessons">
+        {{lesson.title}}</li>
+    </ul>
+  </div>
+  <div class="col-3">
+    <ul class="list-group">
+      <li class="list-group-item active">
+        Widgets
+      </li>
+      <li class="list-group-item webdev"
+          *ngFor="let widget of widgets">
+        {{widget.title}}</li>
+    </ul>
+  </div>
+</div>
+
+
+
