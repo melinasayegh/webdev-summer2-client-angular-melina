@@ -1,3 +1,15 @@
+## webdev-summer2-client-angular-melina
+
+Melina Sayegh<br>
+CS 4550 Web Development<br>
+Assignment 4: Introduction to the MEAN Stack
+Angular
+
+***
+Heroku App: https://webdev-client-angular-melina.herokuapp.com/
+
+***
+
 # WebdevSummer2ClientAngularMelina
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.1.
