@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { WhiteboardComponent } from './whiteboard/whiteboard.component';
+import {CourseNavigatorServiceClient} from './services/CourseNavigatorServiceClient';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,9 @@ import { WhiteboardComponent } from './whiteboard/whiteboard.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [
+    CourseNavigatorServiceClient
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
