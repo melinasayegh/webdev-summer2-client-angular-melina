@@ -13,6 +13,11 @@ export class CourseNavigatorComponent implements OnInit {
   modules = [];
   lessons = [];
   widgets = [];
+  selectedCourseId = 0;
+
+  selectCourse(courseId) {
+    this.selectedCourseId = courseId;
+  }
 
   ngOnInit() {
     this.service.findAllCourses()
