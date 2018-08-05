@@ -1,5 +1,9 @@
 /* Register page CSS */
 
+.container {
+  justify-content: center;
+}
+
 .registerBtn {
   background: #1E90FF;
 }

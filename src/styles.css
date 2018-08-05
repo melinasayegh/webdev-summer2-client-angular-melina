@@ -4,6 +4,11 @@
   font-family: "Open Sans", sans-serif;
 }
 
+.centered {
+  align: center;
+  justify-content: center;
+}
+
 .page-h1 {
   font-family: 'Archivo', sans-serif;
   padding-bottom: 10px;
@@ -16,18 +21,9 @@
 .form-h1 {
   font-family: 'Archivo', sans-serif;
   padding-bottom: 10px;
-  margin-left: 30px;
 }
 
-.control-label {
-  width: 25%;
-  float: right;
-  padding: 10px 10px 10px 50px;
-  display: inline-block;
-}
-
-.form-control {
-  width: 100%;
+.user-fields {
   padding: 10px 10px 10px 10px;
   display: inline-block;
   border: none;

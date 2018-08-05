@@ -1,5 +1,9 @@
 /* Profile page CSS */
 
+.container {
+  justify-content: center;
+}
+
 .updateBtn {
   background: #62c462;
 }

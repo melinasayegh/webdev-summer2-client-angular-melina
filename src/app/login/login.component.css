@@ -1,5 +1,9 @@
 /* Login page CSS */
 
+.container {
+  justify-content: center;
+}
+
 .control-label {
   padding-top: 8px;
 }
