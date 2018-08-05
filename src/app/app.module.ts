@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { WhiteboardComponent } from './whiteboard/whiteboard.component';
-import {CourseNavigatorServiceClient} from './services/CourseNavigatorServiceClient';
+import { CourseNavigatorServiceClient } from './services/coursenavigator.service.client';
 import { CourseNavigatorComponent } from './course-navigator/course-navigator.component';
 
 @NgModule({
