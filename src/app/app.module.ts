@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { WhiteboardComponent } from './whiteboard/whiteboard.component';
 import { CourseNavigatorServiceClient } from './services/coursenavigator.service.client';
 import { CourseNavigatorComponent } from './course-navigator/course-navigator.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WhiteboardComponent,
-    CourseNavigatorComponent
+    CourseNavigatorComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule
