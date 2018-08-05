@@ -5,14 +5,17 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent} from './profile/profile.component';
 import { EnrollmentComponent } from './enrollment/enrollment.component';
 import { SectionComponent } from './section/section.component';
+import {WhiteboardComponent} from './whiteboard/whiteboard.component';
 
 const appRoutes: Routes = [
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'course', component: CourseNavigatorComponent },
+  { path: '',           component: WhiteboardComponent },
+  { path: 'home',       component: WhiteboardComponent },
+  { path: 'register',   component: RegisterComponent },
+  { path: 'login',      component: LoginComponent },
+  { path: 'profile',    component: ProfileComponent },
+  { path: 'course',     component: CourseNavigatorComponent },
   { path: 'enrollment', component: EnrollmentComponent },
-  { path: 'section', component: SectionComponent }
+  { path: 'section',    component: SectionComponent }
 
 ];
 

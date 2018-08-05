@@ -1,0 +1,13 @@
+/* Register page CSS */
+
+.registerBtn {
+  background: #1E90FF;
+}
+
+.loginBtn {
+  background: #62c462;
+}
+
+.already-registered {
+  padding-top: 40px;
+}

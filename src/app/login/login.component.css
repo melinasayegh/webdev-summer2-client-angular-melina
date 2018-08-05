@@ -1,0 +1,13 @@
+/* Login page CSS */
+
+.registerBtn {
+  background: #1E90FF;
+}
+
+.loginBtn {
+  background: #62c462;
+}
+
+.no-account {
+  padding-top: 40px;
+}
