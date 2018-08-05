@@ -1,4 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
 .page-h1 {
+  font-family: 'Archivo', sans-serif;
   padding-bottom: 10px;
+}
+
+.h1, .h2, .h3, .h4 {
+  font-family: 'Archivo', sans-serif;
+}
+
+.form-h1 {
+  font-family: 'Archivo', sans-serif;
+  padding-bottom: 10px;
+  margin-left: 30px;
+}
+
+.control-label {
+  width: 25%;
+  float: right;
+  padding: 10px 10px 10px 50px;
+  display: inline-block;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px 10px 10px 10px;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+  border-radius: 2px;
+  resize: vertical;
+}
+
+.form-control:focus {
+  background: #e5e5e5;
+}
+
+.custom-button {
+  width: 100%;
+  padding: 10px 10px 10px 10px;
+  display: inline-block;
+  border: none;
+  background: #1E90FF;
+  color: #ffffff;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: bold;
+  vertical-align: middle;
+  text-align: center;
 }
