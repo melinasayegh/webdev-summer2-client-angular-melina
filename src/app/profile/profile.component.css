@@ -7,3 +7,7 @@
 .logoutBtn {
   background: #dd514c;
 }
+
+.disabled {
+  background: #f2f2f2;
+}

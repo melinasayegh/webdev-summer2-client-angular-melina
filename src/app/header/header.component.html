@@ -1,5 +1,5 @@
 <div class="container-fullwidth">
-  <nav class="navbar navbar-expand-sm navbar-dark bg-primary navbar-fixed-top">
+  <nav class="navbar navbar-expand-sm navbar-light bg-light navbar-fixed-top">
 
     <a class="navbar-brand" href="/">WhiteBoard</a>
 
@@ -12,7 +12,7 @@
 
     <div class="collapse navbar-collapse " id="navbarWhiteboard"
          uib-collapse="isCollapsed">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav" *ngIf="isLoggedIn">
         <li class="nav-item">
           <a class="nav-link" href="/course">Courses</a>
         </li>
@@ -22,18 +22,27 @@
         <li class="nav-item">
           <a class="nav-link" href="/section">Sections</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/profile">Profile</a>
-        </li>
       </ul>
 
-      <div class="collapse navbar-collapse justify-content-end">
+      <div class="collapse navbar-collapse justify-content-end" *ngIf="isLoggedIn">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="nav-item">
+            <a class="nav-link" href="/profile">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" onclick=""
+               href="/">Log Out</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="collapse navbar-collapse justify-content-end" *ngIf="!isLoggedIn">
         <ul class="nav navbar-nav navbar-right">
           <li class="nav-item">
             <a class="nav-link" href="/register">Register</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/login">Log In</a>
+            <a class="nav-link" href="/login">Sign In</a>
           </li>
         </ul>
       </div>
