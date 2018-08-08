@@ -1,4 +1,9 @@
-const SECTION_STUDENT_API_URL = 'https://webdev-server-node-melina.herokuapp.com/api/student/SID/section';
+/*
+//const SECTION_STUDENT_API_URL = 'https://webdev-server-node-melina.herokuapp.com/api/student/SID/section';
+*/
+
+const SECTION_STUDENT_API_URL = 'http://localhost:3000/api/student/SID/section';
+
 
 export class EnrollmentServiceClient {
 

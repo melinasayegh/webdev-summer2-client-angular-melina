@@ -1,3 +1,18 @@
 .container {
   justify-content: center;
 }
+
+.list-group-item.active.webdev {
+  z-index: 2;
+  color: #fff;
+  background-color: #00a8ff;
+  border-color: #00a8ff;
+}
+
+.grid {
+  margin-top: 10px;
+}
+
+.card {
+  margin-bottom: 15px;
+}

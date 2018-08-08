@@ -1,18 +1,76 @@
 <div class="container-fluid navigator-div">
 
-  <h1 class="page-h1">Course Navigator</h1>
+  <h2 class="home-h">Home</h2>
 
-  <div class="row container">
-    <div class="col-8 justify-content-center">
-      <ul class="list-group">
-        <li class="list-group-item active">Courses</li>
-        <li class="list-group-item webdev"
-            *ngFor="let course of courses"
-            [ngClass]="{'active': course.id === selectedCourse.id}"
-            (click)="selectCourse(course)">
-          {{course.title}}
-        </li>
-      </ul>
+  <br/>
+
+  <h4>Your Courses</h4>
+
+  <div class="row grid">
+    <div class="col-sm-3"
+         *ngFor="let section of sections"
+         [ngClass]="{'active': section._id === selectedSection._id}"
+         (click)="selectSection(section)">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{section.title}}</h5>
+          <p class="card-text">
+            Seats: {{section.takenSeats}} of {{section.maxSeats}}
+          </p>
+          <span class="float-right">
+            <a routerLink="/course/{{section._id}}"
+               class="btn btn-light btn-sm col-xs-2 btn-group">View</a>
+            <a routerLink="/course/{{section._id}}/section"
+               class="btn btn-warning btn-sm col-xs-2 btn-group">Un-Enroll</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br/>
+  <br/>
+
+  <h4>All Courses ({{courses.length}})</h4>
+
+  <div class="row grid">
+    <div *ngFor="let course of courses" class="col-sm-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{course.title}}</h5>
+          <p class="card-text">
+
+          </p>
+          <span class="float-right">
+            <a routerLink="/course/{{course.id}}"
+               class="btn btn-light btn-sm col-xs-2 btn-group">View</a>
+            <a routerLink="/course/{{course.id}}/section"
+             class="btn btn-primary btn-sm col-xs-2 btn-group">Enroll</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Modal
+<div class="modal fade" id="viewSectionModal" tabindex="-1" role="dialog"
+     aria-labelledby="modalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle">Course Title Here</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
     </div>
   </div>
 </div>
+ -->

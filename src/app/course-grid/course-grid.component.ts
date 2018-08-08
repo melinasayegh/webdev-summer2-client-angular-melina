@@ -10,9 +10,10 @@ import { SectionServiceClient} from '../services/section.service.client';
 export class CourseGridComponent implements OnInit {
 
   courses = [];
-  sections = [];
   selectedCourse = {};
 
+  sections = [];
+  selectedSection = {};
 
   constructor(private courseService: CourseNavigatorServiceClient,
               private sectionService: SectionServiceClient) { }
@@ -21,10 +22,17 @@ export class CourseGridComponent implements OnInit {
     this.selectedCourse = course;
   }
 
+  selectSection(section) {
+    this.selectedSection = section;
+  }
+
   ngOnInit() {
     this.courseService.findAllCourses()
       .then(courses => this.courses = courses);
+
+    // change to findAllSectionsForStudent
     this.sectionService.findAllSections()
       .then(sections => this.sections = sections);
+
   }
 }

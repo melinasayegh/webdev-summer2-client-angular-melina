@@ -1,5 +1,10 @@
+/*
 const SECTION_API_URL = 'https://webdev-server-node-melina.herokuapp.com/api/section';
 const SECTION_COURSE_API_URL = 'https://webdev-server-node-melina.herokuapp.com/api/course/CID/section';
+*/
+
+const SECTION_API_URL = 'http://localhost:3000/api/section';
+const SECTION_COURSE_API_URL = 'http://localhost:3000/api/course/CID/section';
 
 
 export class SectionServiceClient {

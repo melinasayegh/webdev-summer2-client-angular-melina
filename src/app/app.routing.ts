@@ -6,10 +6,11 @@ import { ProfileComponent} from './profile/profile.component';
 import { EnrollmentComponent } from './enrollment/enrollment.component';
 import { SectionComponent } from './section/section.component';
 import {WhiteboardComponent} from './whiteboard/whiteboard.component';
+import {CourseGridComponent} from './course-grid/course-grid.component';
 
 const appRoutes: Routes = [
   { path: '',           component: WhiteboardComponent },
-  { path: 'home',       component: WhiteboardComponent },
+  { path: 'home',       component: CourseGridComponent },
   { path: 'register',   component: RegisterComponent },
   { path: 'login',      component: LoginComponent },
   { path: 'profile',    component: ProfileComponent },
