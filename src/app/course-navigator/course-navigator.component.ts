@@ -11,30 +11,44 @@ export class CourseNavigatorComponent implements OnInit {
 
 
   courses = [];
-  selectedCourse = {};
-  selectedModule = {};
-  selectedLesson = {};
-  selectedWidget = {};
+  modules = [];
+  lessons = [];
+  widgets = [];
+  selectedCourseId;
+  selectedCourse;
+  selectedModule;
+  selectedLesson;
+  selectedWidget;
 
-  constructor(private courseService: CourseNavigatorServiceClient) { }
+  constructor(private service: CourseNavigatorServiceClient) { }
 
 
   selectCourse(course) {
     this.selectedCourse = course;
+    this.selectedCourseId = course.id;
     this.selectedModule = {};
     this.selectedLesson = {};
     this.selectedWidget = {};
+
+    this.service.findAllModulesForCourse(course.id)
+      .then(modules => this.modules = modules);
   }
 
   selectModule(module) {
     this.selectedModule = module;
     this.selectedLesson = {};
     this.selectedWidget = {};
+
+    this.service.findAllLessonsForModule(this.selectedCourseId, module.id)
+      .then(lessons => this.lessons = lessons);
   }
 
   selectLesson(lesson) {
     this.selectedLesson = lesson;
     this.selectedWidget = {};
+
+    this.service.findAllWidgetsForLesson(lesson.id)
+      .then(widgets => this.widgets = widgets);
   }
 
   selectWidget(widget) {
@@ -42,7 +56,7 @@ export class CourseNavigatorComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.courseService.findAllCourses()
+    this.service.findAllCourses()
       .then(courses => this.courses = courses);
   }
 }
