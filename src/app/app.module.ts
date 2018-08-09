@@ -17,6 +17,10 @@ import { CourseGridComponent } from './course-grid/course-grid.component';
 import {SectionServiceClient} from './services/section.service.client';
 import {EnrollmentServiceClient} from './services/enrollment.service.client';
 import {UserServiceClient} from './services/user.service.client';
+import { AdminComponent } from './admin/admin.component';
+import { ModulesComponent } from './modules/modules.component';
+import { LessonsComponent } from './lessons/lessons.component';
+import { WidgetsComponent } from './widgets/widgets.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,11 @@ import {UserServiceClient} from './services/user.service.client';
     EnrollmentComponent,
     SectionComponent,
     ProfileComponent,
-    CourseGridComponent
+    CourseGridComponent,
+    AdminComponent,
+    ModulesComponent,
+    LessonsComponent,
+    WidgetsComponent
   ],
   imports: [
     BrowserModule,
