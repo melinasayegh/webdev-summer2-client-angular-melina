@@ -6,15 +6,17 @@
         <ul class="list-group">
           <li class="list-group-item active">Modules</li>
           <li class="list-group-item webdev"
-              *ngFor="let module of selectedCourse.modules"
-              [ngClass]="{'active': module.id === selectedModule.id}"
-              (click)="selectModule(module)">
-            {{module.title}}
+              *ngFor="let module of modules">
+
+            <a routerLink="/course/{{selectedCourseId}}/{{module.id}}">
+              {{module.title}}
+            </a>
+
           </li>
         </ul>
       </div>
 
-      <div class="col-sm-12 col-md-9 col-lg-9">
+      <div class="col-sm-12 col-md-8 col-lg-8">
         <app-lessons></app-lessons>
       </div>
     </div>

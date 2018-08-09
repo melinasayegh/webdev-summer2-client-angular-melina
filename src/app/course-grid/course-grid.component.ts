@@ -10,7 +10,7 @@ import { SectionServiceClient} from '../services/section.service.client';
 })
 export class CourseGridComponent implements OnInit {
 
-  isLoggedIn = true;
+  isLoggedIn = false;
 
   courses = [];
   selectedCourse = {};
@@ -33,7 +33,7 @@ export class CourseGridComponent implements OnInit {
   ngOnInit() {
     this.userService.currentUser()
       .then((response) =>  {
-        if (response.message === 200) {
+        if (response.username !== null) {
           this.isLoggedIn = true;
         } else {
           this.isLoggedIn = false;
@@ -45,7 +45,7 @@ export class CourseGridComponent implements OnInit {
       .then(courses => this.courses = courses);
 
     // change to findAllSectionsForStudent
-    this.sectionService.findAllSections()
+    this.sectionService.findSectionsForStudent()
       .then(sections => this.sections = sections);
 
   }
