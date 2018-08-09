@@ -1,25 +1,13 @@
-<div className="course-editor-div">
-  <div className="col-12">
 
-    <div className="row">
-      <div class="col-sm-12 col-md-3 col-lg-3">
-        <ul class="list-group">
-          <li class="list-group-item active">Lessons</li>
-          <li class="list-group-item webdev"
-              *ngFor="let lesson of lessons">
+<ul class="nav nav-tabs">
+  <li class="nav-item"
+      *ngFor="let lesson of lessons">
 
-            <a routerLink="/course/{{selectedCourseId}}/{{selectedModuleId}}/{{lesson.id}}">
-              {{lesson.title}}
-            </a>
+    <a class="nav-link" [ngClass]="{'active': lesson.id == lessonId}"
+       routerLink="/course/{{courseId}}/module/{{moduleId}}/lesson/{{lesson.id}}">
+      {{lesson.title}}
+    </a>
+  </li>
+</ul>
 
-          </li>
-        </ul>
-      </div>
-
-      <div class="col-sm-12 col-md-9 col-lg-9">
-        <app-widgets></app-widgets>
-      </div>
-    </div>
-
-  </div>
-</div>
+<app-widgets></app-widgets>

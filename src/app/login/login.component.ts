@@ -19,14 +19,14 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (this.username === '') {
-        alert('Please enter your username');
+        window.alert('Please enter your username');
     } else if (this.password === '') {
-        alert('Please enter your password.');
+        window.alert('Please enter your password.');
     } else {
       this.userService.login(this.username, this.password)
         .then( (response) =>  {
-          if (response.message === 404) {
-            alert('This user does not exist.');
+          if (response.message === 'Not Found') {
+            window.alert('This user does not exist.');
           } else {
             this.router.navigate(['profile']);
           }

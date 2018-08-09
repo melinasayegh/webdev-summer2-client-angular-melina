@@ -10,6 +10,7 @@ import { UserServiceClient } from '../services/user.service.client';
 export class HeaderComponent implements OnInit {
 
   isLoggedIn = false;
+  isAdminUser = false;
   isNavbarOpen = false;
 
   constructor(private router: Router, private userService: UserServiceClient) {}
@@ -20,15 +21,21 @@ export class HeaderComponent implements OnInit {
 
   logout = () =>
     this.userService.logout()
-      .then(() => this.router.navigate(['login']));
+      .then(() => this.router.navigate(['login']))
 
   ngOnInit() {
     this.userService.currentUser()
       .then((response) =>  {
         if (response.username !== null) {
           this.isLoggedIn = true;
+          if ((response.username === 'admin') && (response.password === 'admin')) {
+            this.isAdminUser = true;
+          } else {
+            this.isAdminUser = false;
+          }
         } else {
           this.isLoggedIn = false;
+          this.isAdminUser = false;
         }
       });
     console.log(this.isLoggedIn);

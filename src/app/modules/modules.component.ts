@@ -10,19 +10,23 @@ import { CourseNavigatorServiceClient } from '../services/coursenavigator.servic
 })
 export class ModulesComponent implements OnInit {
 
-  selectedCourseId;
-  selectedModule;
+  courseId;
+  moduleId;
   modules = [];
 
-  constructor(private route: ActivatedRoute, private courseService: CourseNavigatorServiceClient) {
-    this.route.params.subscribe(params => {
-      this.selectedCourseId = params['courseId'];
-      this.loadModules(params['courseId']);
-    });
+  constructor(private route: ActivatedRoute, private service: CourseNavigatorServiceClient) {
+    this.route.params.subscribe(params => this.setParams(params));
+  }
+
+  setParams = (params) => {
+    this.courseId = params['courseId'];
+    this.moduleId = params['moduleId'];
+    this.loadModules(this.courseId);
   }
 
   loadModules = (courseId) => {
-    this.courseService.findAllModulesForCourse(courseId)
+    this.courseId = courseId;
+    this.service.findAllModulesForCourse(courseId)
       .then(modules => this.modules = modules);
   }
 

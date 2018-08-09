@@ -8,7 +8,6 @@ import { CourseNavigatorServiceClient } from './services/coursenavigator.service
 import { SectionServiceClient } from './services/section.service.client';
 import { EnrollmentServiceClient } from './services/enrollment.service.client';
 
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { WhiteboardComponent } from './whiteboard/whiteboard.component';

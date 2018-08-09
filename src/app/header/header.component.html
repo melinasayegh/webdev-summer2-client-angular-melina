@@ -19,11 +19,17 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/course">Courses</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/course-list">Course-Viewer</a>
+        </li>
         <li class="nav-item" *ngIf="isLoggedIn">
           <a class="nav-link" routerLink="/enrollment">Enrollments</a>
         </li>
         <li class="nav-item" *ngIf="isLoggedIn">
           <a class="nav-link" routerLink="/section">Sections</a>
+        </li>
+        <li class="nav-item" *ngIf="isAdminUser">
+          <a class="nav-link" routerLink="/admin">Admin</a>
         </li>
       </ul>
 

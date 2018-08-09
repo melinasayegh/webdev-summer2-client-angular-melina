@@ -19,9 +19,9 @@
               Seats: {{section.takenSeats}} of {{section.maxSeats}}
             </p>
             <span class="float-right">
-            <a routerLink="/course/{{section._id}}"
+            <a routerLink="/course/section/{{section._id}}"
                class="btn btn-light btn-sm col-xs-2 btn-group">View</a>
-            <a routerLink="/course/{{section._id}}/section"
+            <a routerLink="/course/section/{{section._id}}"
                class="btn btn-warning btn-sm col-xs-2 btn-group">Un-Enroll</a>
           </span>
           </div>
@@ -46,9 +46,9 @@
 
           </p>
           <span class="float-right">
-            <a routerLink="/course/{{course.id}}"
+            <a routerLink="course/section/{{course.id}}"
                class="btn btn-light btn-sm col-xs-2 btn-group">View</a>
-            <a routerLink="/course/{{course.id}}/section"
+            <a routerLink="/course/section{{course.id}}/section"
              class="btn btn-primary btn-sm col-xs-2 btn-group">Enroll</a>
           </span>
         </div>

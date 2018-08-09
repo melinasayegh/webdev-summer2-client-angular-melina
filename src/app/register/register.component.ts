@@ -27,19 +27,20 @@ export class RegisterComponent implements OnInit {
       lastName: this.lastName,
       email: this.email
     };
+
     if (this.username === '') {
-      alert('Please enter a username.');
+        window.alert('Please enter a username.');
     } else if (this.password === '') {
-      alert('Please enter a password.');
+        window.alert('Please enter a password.');
     } else if (this.password2 === '') {
-      alert('Please confirm your password.');
+        window.alert('Please confirm your password.');
     } else if (this.password !== this.password2) {
-        alert('Passwords do not match.');
+        window.alert('Passwords do not match.');
     } else {
       this.service.createUser(newUser)
         .then( (response) =>  {
           if (response === 406) {
-            alert('This username already exists.');
+            window.alert('This username already exists.');
             } else {
               this.router.navigate(['profile']);
             }

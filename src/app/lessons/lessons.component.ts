@@ -9,23 +9,28 @@ import {CourseNavigatorServiceClient} from '../services/coursenavigator.service.
 })
 export class LessonsComponent implements OnInit {
 
+  courseId;
+  moduleId;
+  lessonId;
   lessons = [];
-  selectedCourseId;
-  selectedModuleId;
 
-  constructor(private route: ActivatedRoute, private courseService: CourseNavigatorServiceClient) {
-    this.route.params.subscribe(params => {
-      this.selectedCourseId = params['courseId'];
-      this.selectedModuleId = params['moduleId'];
-      this.loadLessons(params['courseId'], params['moduleId']);
-    });
+  constructor(private service: CourseNavigatorServiceClient,
+              private route: ActivatedRoute) {
+    this.route.params.subscribe(
+      params => this.setParams(params));
+  }
+
+  setParams(params) {
+    this.courseId = params['courseId'];
+    this.moduleId = params['moduleId'];
+    this.lessonId = params['lessonId'];
+    this.loadLessons(this.courseId, this.moduleId);
   }
 
   loadLessons = (courseId, moduleId) => {
-    this.courseService.findAllLessonsForModule(courseId, moduleId)
+    this.service.findAllLessonsForModule(courseId, moduleId)
       .then(lessons => this.lessons = lessons);
   }
-
 
   ngOnInit() {
   }
