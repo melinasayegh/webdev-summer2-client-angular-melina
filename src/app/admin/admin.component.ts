@@ -10,17 +10,35 @@ import { SectionServiceClient } from '../services/section.service.client';
 export class AdminComponent implements OnInit {
 
   courses = [];
+  selectedCourse = {};
   sections = [];
 
   constructor(private courseService: CourseNavigatorServiceClient,
               private sectionService: SectionServiceClient) { }
 
+  viewSections(course) {
+    this.selectedCourse = course;
+    this.sectionService.findSectionsForCourse(course._id)
+      .then(sections => this.sections = sections);
+
+  }
+  addSection(courseId) {
+
+  }
+
+  updateSection(sectionId) {
+
+  }
+
+  deleteSection(sectionId) {
+    this.sectionService.deleteSection(sectionId)
+      .then(() => {
+        this.viewSections(this.selectedCourse);
+      });
+  }
+
   ngOnInit() {
     this.courseService.findAllCourses()
       .then(courses => this.courses = courses);
-
-    // change to findAllSectionsForStudent
-    this.sectionService.findSectionsForCourse(this.courses[1].id)
-      .then(sections => this.sections = sections);
   }
 }

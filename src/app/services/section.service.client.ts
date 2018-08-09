@@ -21,8 +21,7 @@ export class SectionServiceClient {
     const url = 'http://localhost:3000/api/student/section';
     return fetch(url, {
       credentials: 'include'
-    })
-      .then(response => response.json());
+    }).then(response => response.json());
   }
 
   findSectionsForCourse(courseId) {
@@ -33,5 +32,23 @@ export class SectionServiceClient {
   findSectionById(sectionId) {
     return fetch(SECTION_API_URL + sectionId)
       .then(response => response.json());
+  }
+
+  createSection(courseId, section) {
+    return fetch(SECTION_API_URL + courseId, {
+      method: 'post',
+      body: JSON.stringify(section),
+      credentials: 'include',
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json());
+  }
+
+  deleteSection(sectionId) {
+    return fetch(SECTION_API_URL + sectionId, {
+      method: 'delete',
+      credentials: 'include'
+    }).then(response => response.json());
   }
 }

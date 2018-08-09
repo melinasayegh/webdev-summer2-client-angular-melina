@@ -11,11 +11,34 @@
         <li class="list-group-item webdev"
             *ngFor="let course of courses">
           {{course.title}}
+
+          <span class="float-right">
+              <button class="btn btn-light btn-sm col-xs-2 btn-group"
+                      (click)="viewSections(course)">
+                View
+              </button>
+              <button class="btn btn-success btn-sm col-xs-2 btn-group"
+                      (click)="addSection(course._id)">
+                Add
+              </button>
+          </span>
         </li>
+
         <ul>
           <li class="list-group-item webdev"
               *ngFor="let section of sections">
             {{section.title}}
+
+            <span class="float-right">
+              <button class="btn btn-warning btn-sm col-xs-2 btn-group"
+                      (click)="updateSection(section._id)">
+                Update
+              </button>
+              <button class="btn btn-danger btn-sm col-xs-2 btn-group"
+                      (click)="deleteSection(section._id)">
+                Delete
+              </button>
+            </span>
           </li>
         </ul>
       </ul>
