@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CourseNavigatorServiceClient} from '../services/coursenavigator.service.client';
 
 @Component({
   selector: 'app-course-list',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CourseListComponent implements OnInit {
 
-  constructor() { }
+  courses = [];
+  selectedCourse = {};
 
-  ngOnInit() {
+  constructor(private courseService: CourseNavigatorServiceClient) { }
+
+
+  selectCourse(course) {
+    this.selectedCourse = course;
   }
 
+  navigateToModules(course) {
+
+  }
+
+  ngOnInit() {
+    this.courseService.findAllCourses()
+      .then(courses => this.courses = courses);
+  }
 }

@@ -8,6 +8,8 @@ import { SectionComponent } from './section/section.component';
 import {WhiteboardComponent} from './whiteboard/whiteboard.component';
 import {CourseGridComponent} from './course-grid/course-grid.component';
 import {AdminComponent} from './admin/admin.component';
+import {ModulesComponent} from './modules/modules.component';
+import {CourseListComponent} from './course-list/course-list.component';
 
 const appRoutes: Routes = [
   { path: '',           component: WhiteboardComponent },
@@ -18,7 +20,9 @@ const appRoutes: Routes = [
   { path: 'course',     component: CourseNavigatorComponent },
   { path: 'enrollment', component: EnrollmentComponent },
   { path: 'section',    component: SectionComponent },
-  { path: 'admin',      component: AdminComponent}
+  { path: 'admin',      component: AdminComponent},
+  { path: 'course/:courseId', component: ModulesComponent },
+  { path: 'course-list', component: CourseListComponent }
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

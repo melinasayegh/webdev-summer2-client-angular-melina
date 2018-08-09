@@ -1,24 +1,23 @@
-<!-- Modal
-<div>
-  <div>
-    <div class="col-sm-12 col-md-4 col-lg-4">
-      <ul class="list-group">
-        <li class="list-group-item active">Modules</li>
-        <li class="list-group-item webdev"
-            *ngFor="let module of selectedCourse.modules"
-            [ngClass]="{'active': module.id === selectedModule.id}"
-            (click)="selectModule(module)">
-          {{module.title}}
-        </li>
-      </ul>
-    </div>
-  </div>
+<div className="course-editor-div">
+  <div className="col-12">
 
-  <div>
-    <div class="col-sm-12 col-md-8 col-lg-8">
-      <app-lessons [selectedModule]="selectedModule"></app-lessons>
-    </div>
-  </div>
+    <div className="row">
+      <div class="col-sm-12 col-md-3 col-lg-3">
+        <ul class="list-group">
+          <li class="list-group-item active">Modules</li>
+          <li class="list-group-item webdev"
+              *ngFor="let module of selectedCourse.modules"
+              [ngClass]="{'active': module.id === selectedModule.id}"
+              (click)="selectModule(module)">
+            {{module.title}}
+          </li>
+        </ul>
+      </div>
 
+      <div class="col-sm-12 col-md-9 col-lg-9">
+        <app-lessons></app-lessons>
+      </div>
+    </div>
+
+  </div>
 </div>
--->
