@@ -9,6 +9,9 @@ const C_M_L_API_URL = 'https://webdev-server-java-melina.herokuapp.com/api/cours
 const WIDGET_API_URL = 'https://webdev-server-java-melina.herokuapp.com/api/widget';
 const W_L_API_URL = 'https://webdev-server-java-melina.herokuapp.com/api/lesson/LID/widget';
 
+import { Injectable } from '@angular/core';
+
+@Injectable()
 export class CourseNavigatorServiceClient {
 
   // COURSES

@@ -1,3 +1,24 @@
-<p>
-  modules works!
-</p>
+<!-- Modal
+<div>
+  <div>
+    <div class="col-sm-12 col-md-4 col-lg-4">
+      <ul class="list-group">
+        <li class="list-group-item active">Modules</li>
+        <li class="list-group-item webdev"
+            *ngFor="let module of selectedCourse.modules"
+            [ngClass]="{'active': module.id === selectedModule.id}"
+            (click)="selectModule(module)">
+          {{module.title}}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div>
+    <div class="col-sm-12 col-md-8 col-lg-8">
+      <app-lessons [selectedModule]="selectedModule"></app-lessons>
+    </div>
+  </div>
+
+</div>
+-->

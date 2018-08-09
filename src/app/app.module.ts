@@ -3,41 +3,43 @@ import { NgModule } from '@angular/core';
 import { routing } from './app.routing';
 import { FormsModule } from '@angular/forms';
 
-import { AppComponent } from './app.component';
-import { WhiteboardComponent } from './whiteboard/whiteboard.component';
+import { UserServiceClient } from './services/user.service.client';
 import { CourseNavigatorServiceClient } from './services/coursenavigator.service.client';
-import { CourseNavigatorComponent } from './course-navigator/course-navigator.component';
+import { SectionServiceClient } from './services/section.service.client';
+import { EnrollmentServiceClient } from './services/enrollment.service.client';
+
+
+import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
+import { WhiteboardComponent } from './whiteboard/whiteboard.component';
+import { CourseNavigatorComponent } from './course-navigator/course-navigator.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
 import { EnrollmentComponent } from './enrollment/enrollment.component';
 import { SectionComponent } from './section/section.component';
-import { ProfileComponent } from './profile/profile.component';
 import { CourseGridComponent } from './course-grid/course-grid.component';
-import {SectionServiceClient} from './services/section.service.client';
-import {EnrollmentServiceClient} from './services/enrollment.service.client';
-import {UserServiceClient} from './services/user.service.client';
-import { AdminComponent } from './admin/admin.component';
 import { ModulesComponent } from './modules/modules.component';
 import { LessonsComponent } from './lessons/lessons.component';
 import { WidgetsComponent } from './widgets/widgets.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WhiteboardComponent,
-    CourseNavigatorComponent,
     HeaderComponent,
+    WhiteboardComponent,
     RegisterComponent,
     LoginComponent,
-    EnrollmentComponent,
-    SectionComponent,
     ProfileComponent,
+    CourseNavigatorComponent,
     CourseGridComponent,
-    AdminComponent,
     ModulesComponent,
     LessonsComponent,
-    WidgetsComponent
+    WidgetsComponent,
+    EnrollmentComponent,
+    SectionComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -45,8 +47,8 @@ import { WidgetsComponent } from './widgets/widgets.component';
     routing
   ],
   providers: [
-    CourseNavigatorServiceClient,
     UserServiceClient,
+    CourseNavigatorServiceClient,
     SectionServiceClient,
     EnrollmentServiceClient
   ],

@@ -18,6 +18,12 @@ export class ProfileComponent implements OnInit {
   user = {};
   username;
   password;
+  firstName;
+  lastName;
+  phoneNum;
+  email;
+  address;
+
   sections = [];
 
   update(user) {
@@ -33,13 +39,18 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service
-      .profile()
-      .then(user =>
-        this.username = user.username);
+    this.service.profile()
+      .then(user => {
+        this.username = user.username;
+        this.password = user.password;
+        this.firstName = user.firstName;
+        this.lastName = user.lastName;
+        this.phoneNum = user.phoneNumber;
+        this.email = user.email;
+        this.address = user.address;
+      });
 
-    this.sectionService
-      .findSectionsForStudent()
+    this.sectionService.findSectionsForStudent()
       .then(sections => this.sections = sections );
   }
 }

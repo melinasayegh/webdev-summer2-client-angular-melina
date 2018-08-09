@@ -4,7 +4,9 @@
 
 const SECTION_STUDENT_API_URL = 'http://localhost:3000/api/student/SID/section';
 
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class EnrollmentServiceClient {
 
   // SECTIONS

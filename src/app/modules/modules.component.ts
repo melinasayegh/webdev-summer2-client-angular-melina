@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModulesComponent implements OnInit {
 
+  selectedModule;
+
   constructor() { }
 
   ngOnInit() {

@@ -7,6 +7,7 @@ import { EnrollmentComponent } from './enrollment/enrollment.component';
 import { SectionComponent } from './section/section.component';
 import {WhiteboardComponent} from './whiteboard/whiteboard.component';
 import {CourseGridComponent} from './course-grid/course-grid.component';
+import {AdminComponent} from './admin/admin.component';
 
 const appRoutes: Routes = [
   { path: '',           component: WhiteboardComponent },
@@ -16,8 +17,8 @@ const appRoutes: Routes = [
   { path: 'profile',    component: ProfileComponent },
   { path: 'course',     component: CourseNavigatorComponent },
   { path: 'enrollment', component: EnrollmentComponent },
-  { path: 'section',    component: SectionComponent }
-
+  { path: 'section',    component: SectionComponent },
+  { path: 'admin',      component: AdminComponent}
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);
