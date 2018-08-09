@@ -25,17 +25,17 @@ export class SectionServiceClient {
   }
 
   findSectionsForCourse(courseId) {
-    return fetch(SECTION_API_URL + courseId)
+    return fetch(SECTION_API_URL + '/' +  courseId)
       .then(response => response.json());
   }
 
   findSectionById(sectionId) {
-    return fetch(SECTION_API_URL + sectionId)
+    return fetch(SECTION_API_URL + '/' + sectionId)
       .then(response => response.json());
   }
 
   createSection(courseId, section) {
-    return fetch(SECTION_API_URL + courseId, {
+    return fetch(SECTION_COURSE_API_URL.replace('CID', courseId), {
       method: 'post',
       body: JSON.stringify(section),
       credentials: 'include',
@@ -46,7 +46,7 @@ export class SectionServiceClient {
   }
 
   deleteSection(sectionId) {
-    return fetch(SECTION_API_URL + sectionId, {
+    return fetch(SECTION_API_URL + '/' + sectionId, {
       method: 'delete',
       credentials: 'include'
     }).then(response => response.json());

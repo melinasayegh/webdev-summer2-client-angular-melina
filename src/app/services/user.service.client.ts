@@ -37,11 +37,22 @@ export class UserServiceClient {
       }).then(response => response.json());
   }
 
-  createUser(username, password) {
-    const user = {
-      username: username,
-      password: password
-    };
+  deleteProfile() {
+    return fetch('http://localhost:3000/api/profile', {
+        method: 'delete',
+      credentials: 'include', // include, same-origin, *omit
+      }).then(response => response.json());
+  }
+
+  updateProfile(newProfile) {
+    return fetch('http://localhost:3000/api/profile/', {
+      method: 'put',
+      body: JSON.stringify(newProfile),
+      credentials: 'include', // include, same-origin, *omit
+      }).then(response => response.json());
+  }
+
+  createUser(user) {
     return fetch('http://localhost:3000/api/user', {
       body: JSON.stringify(user),
       credentials: 'include', // include, same-origin, *omit

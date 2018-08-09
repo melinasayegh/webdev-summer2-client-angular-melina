@@ -10,7 +10,7 @@ import { SectionServiceClient} from '../services/section.service.client';
 })
 export class CourseGridComponent implements OnInit {
 
-  isLoggedIn;
+  isLoggedIn = true;
 
   courses = [];
   selectedCourse = {};

@@ -18,20 +18,33 @@ export class AdminComponent implements OnInit {
 
   viewSections(course) {
     this.selectedCourse = course;
-    this.sectionService.findSectionsForCourse(course._id)
+    //this.sectionService.findSectionsForCourse(course.id)
+      //.then(sections => this.sections = sections);
+    this.sectionService.findAllSections()
       .then(sections => this.sections = sections);
-
   }
-  addSection(courseId) {
-
+  addSection(course) {
+    // find num sections of course
+    this.sectionService.findSectionsForCourse(course.id)
+      .then(sections => this.sections = sections);
+    const numSections = this.sections.length + 1;
+    const section = {
+      courseId: course.id,
+      title: course.title + ' Section 1',// + (numSections),
+      maxSeats: 20,
+      takenSeats: 0
+    };
+    this.sectionService.createSection(course.id, section)
+      .then(() => this.viewSections(course));
   }
 
-  updateSection(sectionId) {
-
+  updateSection(section) {
+   console.log(section._id);
+    console.log(section.courseId);
   }
 
-  deleteSection(sectionId) {
-    this.sectionService.deleteSection(sectionId)
+  deleteSection(section) {
+    this.sectionService.deleteSection(section._id)
       .then(() => {
         this.viewSections(this.selectedCourse);
       });

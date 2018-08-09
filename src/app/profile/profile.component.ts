@@ -31,8 +31,28 @@ export class ProfileComponent implements OnInit {
   }
 
   logout() {
-    this.service
-      .logout()
+    this.service.logout()
+      .then(() =>
+        this.router.navigate(['login']));
+
+  }
+
+  updateProfile() {
+    const newUser = {
+      username: this.username,
+      password: this.password,
+      firstName: this.firstName,
+      lastName: this.lastName,
+      phoneNumber: this.phoneNum,
+      email: this.email,
+      address: this.address,
+    }
+    this.service.updateProfile(newUser);
+
+  }
+
+  deleteProfile() {
+    this.service.deleteProfile()
       .then(() =>
         this.router.navigate(['login']));
 

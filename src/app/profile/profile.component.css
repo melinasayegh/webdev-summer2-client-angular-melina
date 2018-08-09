@@ -9,6 +9,10 @@
   background: #62c462;
 }
 
+.deleteBtn {
+  background: #495057;
+}
+
 .logoutBtn {
   background: #dd514c;
 }
