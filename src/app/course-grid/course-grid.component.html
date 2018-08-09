@@ -4,32 +4,34 @@
 
   <br/>
 
-  <h4>Your Courses</h4>
+  <div *ngIf="isLoggedIn">
+    <h4>Your Courses</h4>
 
-  <div class="row grid">
-    <div class="col-sm-3"
-         *ngFor="let section of sections"
-         [ngClass]="{'active': section._id === selectedSection._id}"
-         (click)="selectSection(section)">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">{{section.title}}</h5>
-          <p class="card-text">
-            Seats: {{section.takenSeats}} of {{section.maxSeats}}
-          </p>
-          <span class="float-right">
+    <div class="row grid">
+      <div class="col-sm-3"
+           *ngFor="let section of sections"
+           [ngClass]="{'active': section._id === selectedSection._id}"
+           (click)="selectSection(section)">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{section.title}}</h5>
+            <p class="card-text">
+              Seats: {{section.takenSeats}} of {{section.maxSeats}}
+            </p>
+            <span class="float-right">
             <a routerLink="/course/{{section._id}}"
                class="btn btn-light btn-sm col-xs-2 btn-group">View</a>
             <a routerLink="/course/{{section._id}}/section"
                class="btn btn-warning btn-sm col-xs-2 btn-group">Un-Enroll</a>
           </span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <br/>
-  <br/>
+    <br/>
+    <br/>
+  </div>
 
   <h4>All Courses ({{courses.length}})</h4>
 

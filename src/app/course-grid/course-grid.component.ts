@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserServiceClient } from '../services/user.service.client';
 import { CourseNavigatorServiceClient } from '../services/coursenavigator.service.client';
 import { SectionServiceClient} from '../services/section.service.client';
 
@@ -9,13 +10,16 @@ import { SectionServiceClient} from '../services/section.service.client';
 })
 export class CourseGridComponent implements OnInit {
 
+  isLoggedIn;
+
   courses = [];
   selectedCourse = {};
 
   sections = [];
   selectedSection = {};
 
-  constructor(private courseService: CourseNavigatorServiceClient,
+  constructor(private userService: UserServiceClient,
+              private courseService: CourseNavigatorServiceClient,
               private sectionService: SectionServiceClient) { }
 
   selectCourse(course) {
@@ -27,6 +31,16 @@ export class CourseGridComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.userService.currentUser()
+      .then((response) =>  {
+        if (response.message === 200) {
+          this.isLoggedIn = true;
+        } else {
+          this.isLoggedIn = false;
+        }
+      });
+    console.log(this.isLoggedIn);
+
     this.courseService.findAllCourses()
       .then(courses => this.courses = courses);
 

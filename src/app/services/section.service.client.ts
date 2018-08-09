@@ -15,12 +15,15 @@ export class SectionServiceClient {
       .then(response => response.json());
   }
 
-  findAllSectionsForStudent(studentId) {
-    return fetch(SECTION_API_URL + studentId)
+  findSectionsForStudent() {
+    const url = 'http://localhost:3000/api/student/section';
+    return fetch(url, {
+      credentials: 'include'
+    })
       .then(response => response.json());
   }
 
-  findAllSectionsForCourse(courseId) {
+  findSectionsForCourse(courseId) {
     return fetch(SECTION_API_URL + courseId)
       .then(response => response.json());
   }
