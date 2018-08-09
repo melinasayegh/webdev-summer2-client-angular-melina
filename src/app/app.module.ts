@@ -24,6 +24,7 @@ import { LessonsComponent } from './lessons/lessons.component';
 import { WidgetsComponent } from './widgets/widgets.component';
 import { AdminComponent } from './admin/admin.component';
 import { CourseListComponent } from './course-list/course-list.component';
+import { CourseViewerComponent } from './course-viewer/course-viewer.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { CourseListComponent } from './course-list/course-list.component';
     EnrollmentComponent,
     SectionComponent,
     AdminComponent,
-    CourseListComponent
+    CourseListComponent,
+    CourseViewerComponent
   ],
   imports: [
     BrowserModule,
