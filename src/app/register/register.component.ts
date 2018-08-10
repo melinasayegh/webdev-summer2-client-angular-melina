@@ -28,23 +28,18 @@ export class RegisterComponent implements OnInit {
       email: this.email
     };
 
-    if (this.username === '') {
+    if (this.username === undefined) {
         window.alert('Please enter a username.');
-    } else if (this.password === '') {
+    } else if (this.password === undefined) {
         window.alert('Please enter a password.');
-    } else if (this.password2 === '') {
+    } else if (this.password2 === undefined) {
         window.alert('Please confirm your password.');
     } else if (this.password !== this.password2) {
         window.alert('Passwords do not match.');
     } else {
       this.service.createUser(newUser)
-        .then( (response) =>  {
-          if (response === 406) {
-            window.alert('This username already exists.');
-            } else {
-              this.router.navigate(['profile']);
-            }
-        });
+        .then((response) =>
+          this.router.navigate(['profile']), () => alert('Username already exists.'));
     }
   }
 

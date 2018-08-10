@@ -27,7 +27,7 @@ export class UserServiceClient {
     return fetch('http://localhost:3000/api/logout', {
       method: 'post',
       credentials: 'include'
-    }).then((response) => (response.json()));
+    })
   }
 
   profile() {

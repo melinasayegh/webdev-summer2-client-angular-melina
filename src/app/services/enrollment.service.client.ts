@@ -16,12 +16,23 @@ export class EnrollmentServiceClient {
   }
 
   enrollStudent(studentId, sectionId) {
-    return fetch(SECTION_STUDENT_API_URL.replace('SID', studentId) + sectionId)
-      .then(response => response.json());
+    const url = 'http://localhost:3000/api/section/' + sectionId + '/enrollment';
+    return fetch(url, {
+      method: 'post',
+      credentials: 'include',
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json());
   }
 
   unEnrollStudent(studentId, sectionId) {
-    return fetch(SECTION_STUDENT_API_URL.replace('SID', studentId) + sectionId)
-      .then(response => response.json());
+    return fetch(SECTION_STUDENT_API_URL.replace('SID', studentId) + sectionId, {
+      method: 'delete',
+      credentials: 'include',
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json());
   }
 }

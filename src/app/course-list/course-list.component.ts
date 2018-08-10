@@ -13,13 +13,8 @@ export class CourseListComponent implements OnInit {
 
   constructor(private courseService: CourseNavigatorServiceClient) { }
 
-
   selectCourse(course) {
     this.selectedCourse = course;
-  }
-
-  navigateToModules(course) {
-
   }
 
   ngOnInit() {

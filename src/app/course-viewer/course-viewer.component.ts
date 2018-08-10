@@ -9,7 +9,7 @@ import {CourseNavigatorServiceClient} from '../services/coursenavigator.service.
 })
 export class CourseViewerComponent implements OnInit {
 
-  selectedCourse;
+  selectedCourse = {};
 
   constructor(private service: CourseNavigatorServiceClient,
               private route: ActivatedRoute) {
@@ -18,11 +18,11 @@ export class CourseViewerComponent implements OnInit {
   }
 
   loadCourse = (courseId) => {
+    console.log(courseId);
     this.service.findCourseById(courseId)
       .then(course => this.selectedCourse = course);
   }
 
   ngOnInit() {
   }
-
 }

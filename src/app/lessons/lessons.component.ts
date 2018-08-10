@@ -12,6 +12,8 @@ export class LessonsComponent implements OnInit {
   courseId;
   moduleId;
   lessonId;
+  selectedModule = {};
+  selectedLesson = {};
   lessons = [];
 
   constructor(private service: CourseNavigatorServiceClient,

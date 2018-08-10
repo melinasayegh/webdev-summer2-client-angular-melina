@@ -1,8 +1,31 @@
-<div class="container-fluid">
-  <h2>Sections</h2>
-  <p>
-    section works!
-  </p>
+<div class="container-fluid navigator-div">
 
+  <h2>Sections for Course {{course.title}}</h2>
 
+  <div class="row">
+    <div class="col-sm-12 col-md-10 col-lg-10">
+      <ul class="list-group">
+        <li class="list-group-item active">Sections</li>
+        <li class="list-group-item webdev"
+            *ngFor="let section of sections">
+
+          <b>{{section.title}}</b>
+          <br/>
+          {{section.takenSeats}} of {{section.maxSeats}} seats filled
+
+          <span class="float-right">
+            <button class="btn btn-success btn-sm col-xs-2 btn-group"
+                    (click)="enroll(section)">
+            Enroll
+          </button>
+            &nbsp;
+          <button class="btn btn-warning btn-sm col-xs-2 btn-group"
+                  (click)="unEnroll(section)">
+            Un-Enroll
+          </button>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>

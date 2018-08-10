@@ -25,7 +25,8 @@ export class SectionServiceClient {
   }
 
   findSectionsForCourse(courseId) {
-    return fetch(SECTION_API_URL + '/' +  courseId)
+    const url = 'http://localhost:3000/api/course/CID/section';
+    return fetch(url.replace('CID', courseId))
       .then(response => response.json());
   }
 

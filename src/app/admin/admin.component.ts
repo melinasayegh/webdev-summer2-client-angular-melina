@@ -21,7 +21,10 @@ export class AdminComponent implements OnInit {
     //this.sectionService.findSectionsForCourse(course.id)
       //.then(sections => this.sections = sections);
     this.sectionService.findAllSections()
-      .then(sections => this.sections = sections);
+      .then(sections => {
+        console.log(sections);
+        this.sections = sections;
+      });
   }
   addSection(course) {
     // find num sections of course

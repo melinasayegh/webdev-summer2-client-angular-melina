@@ -16,7 +16,7 @@ export class CourseNavigatorServiceClient {
 
   // COURSES
   findCourseById(courseId) {
-    return fetch(COURSE_API_URL + courseId)
+    return fetch(COURSE_API_URL + '/' + courseId)
       .then(response => response.json());
   }
 
@@ -27,7 +27,7 @@ export class CourseNavigatorServiceClient {
 
   // MODULES
   findModuleById(moduleId) {
-    return fetch( MODULE_API_URL +  moduleId, {
+    return fetch( MODULE_API_URL  + '/' +  moduleId, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
     }).then(response => response.json());

@@ -11,6 +11,7 @@ import { AdminComponent } from './admin/admin.component';
 import { ModulesComponent } from './modules/modules.component';
 import { CourseListComponent } from './course-list/course-list.component';
 import { CourseViewerComponent } from './course-viewer/course-viewer.component';
+import {LessonsComponent} from './lessons/lessons.component';
 
 const appRoutes: Routes = [
   { path: '',                 component: WhiteboardComponent },
@@ -28,8 +29,8 @@ const appRoutes: Routes = [
   { path: 'course/:courseId/module/:moduleId/lesson/:lessonId', component: CourseViewerComponent },
   { path: 'home/section/:sectionId', component: SectionComponent },
   { path: 'section/:sectionId', component: SectionComponent },
-  { path: 'home/course/section/:courseId', component: SectionComponent },
-  { path: 'course/section/:courseId', component: SectionComponent },
+  { path: 'home/course/:courseId/section', component: SectionComponent },
+  { path: 'course/:courseId/section', component: SectionComponent },
   { path: '**',               component: WhiteboardComponent }
 ];
 

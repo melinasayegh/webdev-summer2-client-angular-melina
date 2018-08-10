@@ -17,20 +17,22 @@ export class LoginComponent implements OnInit {
   username;
   password;
 
-  login() {
-    if (this.username === '') {
+
+  login(username, password) {
+    if (username === undefined) {
         window.alert('Please enter your username');
-    } else if (this.password === '') {
+    } else if (password === undefined) {
         window.alert('Please enter your password.');
     } else {
-      this.userService.login(this.username, this.password)
-        .then( (response) =>  {
-          if (response.message === 'Not Found') {
-            window.alert('This user does not exist.');
-          } else {
-            this.router.navigate(['profile']);
-          }
-        });
+      if (username === 'admin' && password === 'admin') {
+        this.userService.login(username, password)
+          .then(() => this.router.navigate(['admin']), () => alert('User does not exist.'));
+
+      } else {
+        this.userService.login(username, password)
+          .then(() => this.router.navigate(['profile']), () => alert('User does not exist.'));
+
+      }
     }
   }
   ngOnInit() {
