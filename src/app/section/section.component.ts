@@ -13,7 +13,9 @@ import {UserServiceClient} from '../services/user.service.client';
 export class SectionComponent implements OnInit {
 
   selectedCourseId;
-  course = {};
+  course = {
+    title: ''
+  };
   selectedSection = {};
   sections = [];
   currentUser = {};
