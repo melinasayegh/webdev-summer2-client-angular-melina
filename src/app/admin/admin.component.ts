@@ -10,22 +10,67 @@ import { SectionServiceClient } from '../services/section.service.client';
 export class AdminComponent implements OnInit {
 
   courses = [];
-  selectedCourse = {};
+  selectedCourse = {
+    id: 0,
+    title: '',
+  };
   sections = [];
+
+  courseIsSelected = false;
+
+  sectionName;
+  takenSeats;
+  maxSeats;
+
 
   constructor(private courseService: CourseNavigatorServiceClient,
               private sectionService: SectionServiceClient) { }
 
   viewSections(course) {
+    this.selectedCourse = {
+      id: 0,
+      title: ''
+    };
     this.selectedCourse = course;
-    //this.sectionService.findSectionsForCourse(course.id)
-      //.then(sections => this.sections = sections);
+    this.courseIsSelected = true;
+    this.sectionService.findSectionsForCourse(course.id)
+      .then(sections => this.sections = sections);
+    /*
     this.sectionService.findAllSections()
       .then(sections => {
         console.log(sections);
         this.sections = sections;
       });
+      */
   }
+
+  createSection() {
+    if (this.selectedCourse !== undefined) {
+      const numSections = this.sections.length + 1;
+      const defaultSection = {
+        courseId: this.selectedCourse.id,
+        title: this.selectedCourse.title + ' Section ' + (numSections),
+        maxSeats: 20,
+        takenSeats: 0
+      };
+      if (this.sectionName !== undefined) {
+        defaultSection.title = this.sectionName;
+      }
+
+      if (this.takenSeats !== undefined) {
+        defaultSection.takenSeats = this.takenSeats;
+      }
+
+      if (this.maxSeats !== undefined) {
+        defaultSection.maxSeats = this.maxSeats;
+      }
+
+      this.sectionService.createSection(this.selectedCourse.id, defaultSection)
+        .then(() => this.viewSections(this.selectedCourse));
+    }
+  }
+
+
   addSection(course) {
     // find num sections of course
     this.sectionService.findSectionsForCourse(course.id)
@@ -33,7 +78,7 @@ export class AdminComponent implements OnInit {
     const numSections = this.sections.length + 1;
     const section = {
       courseId: course.id,
-      title: course.title + ' Section 1',// + (numSections),
+      title: course.title + ' Section ' + (numSections),
       maxSeats: 20,
       takenSeats: 0
     };
@@ -41,16 +86,28 @@ export class AdminComponent implements OnInit {
       .then(() => this.viewSections(course));
   }
 
-  updateSection(section) {
-   console.log(section._id);
-    console.log(section.courseId);
+  selectSection(section) {
+    this.sectionName = section.title;
+    this.takenSeats = section.takenSeats;
+    this.maxSeats = section.maxSeats;
+  }
+
+  updateSection() {
+    const section = {
+      courseId: this.selectedCourse.id,
+      title: this.sectionName,
+      maxSeats: this.maxSeats,
+      takenSeats: this.takenSeats
+    };
+
+    this.sectionService.updateSection(this.selectedCourse.id, section)
+      .then(() => this.viewSections(this.selectedCourse));
   }
 
   deleteSection(section) {
     this.sectionService.deleteSection(section._id)
-      .then(() => {
-        this.viewSections(this.selectedCourse);
-      });
+      .then(() => this.viewSections(this.selectedCourse),
+        () => this.viewSections(this.selectedCourse));
   }
 
   ngOnInit() {

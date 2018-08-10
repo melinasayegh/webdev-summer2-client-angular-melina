@@ -50,6 +50,17 @@ export class SectionServiceClient {
     }).then(response => response.json());
   }
 
+  updateSection(courseId, section) {
+    return fetch(HEROKU_SECTION_COURSE_API_URL.replace('CID', courseId), {
+      method: 'put',
+      body: JSON.stringify(section),
+      credentials: 'include',
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json());
+  }
+
   deleteSection(sectionId) {
     return fetch(HEROKU_SECTION_API_URL + '/' + sectionId, {
       method: 'delete',

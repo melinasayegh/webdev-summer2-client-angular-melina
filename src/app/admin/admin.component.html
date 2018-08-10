@@ -6,33 +6,64 @@
   <br/>
 
   <div class="container">
-    <div class="col-sm-12 col-md-10 col-lg-10">
-      <ul class="list-group">
-        <li class="list-group-item active">Courses</li>
-        <li class="list-group-item webdev"
-            *ngFor="let course of courses">
-          {{course.title}}
-
-          <span class="float-right">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-6">
+        <ul class="list-group">
+          <li class="list-group-item active">Courses</li>
+          <li class="list-group-item webdev"
+              [ngClass]="{'active': course.id === selectedCourse.id}"
+              *ngFor="let course of courses">
+            {{course.title}}
+            <span class="float-right">
               <button class="btn btn-light btn-sm col-xs-2 btn-group"
                       (click)="viewSections(course)">
                 View
               </button>
-            &nbsp;
-              <button class="btn btn-success btn-sm col-xs-2 btn-group"
-                      (click)="addSection(course)">
-                Add
-              </button>
           </span>
-        </li>
-          <ul>
-            <li class="list-group-item webdev"
-                *ngFor="let section of sections">
-              {{section.title}}
+          </li>
+        </ul>
+      </div>
+      <div *ngIf="courseIsSelected" class="col-sm-12 col-md-6 col-lg-6">
+        <ul>
+          <li class="list-group-item active">Sections</li>
+          <li class="list-group-item webdev">
+            <h4>New Section</h4>
+            <div class ="form-group row col-12">
+              <input [(ngModel)]="sectionName" type="text"
+                     placeholder="Section Name"
+                     class="form-control user-fields" id="name"/>
+            </div>
+            <div class ="form-group row col-12">
+              <div class="form-group col-6">
+                <input [(ngModel)]="takenSeats" type="text"
+                       placeholder="# Taken Seats"
+                       class="form-control user-fields" id="takenSeats"/>
+              </div>
+              <div class="form-group col-6">
+                <input [(ngModel)]="maxSeats" type="text"
+                       placeholder="# Max Seats"
+                       class="form-control user-fields" id="maxSeats"/>
+              </div>
+            </div>
+            <div class ="form-group row col-12">
+              <button class="btn btn-success btn-sm col-8 btn-group"
+                      (click)="createSection()">
+                Create Section
+              </button>
+              &nbsp;
+              <button class="btn btn-primary btn-sm col-3 btn-group"
+                      (click)="updateSection()">
+                Update
+              </button>
+            </div>
+          </li>
 
-              <span class="float-right">
+          <li class="list-group-item webdev"
+              *ngFor="let section of sections">
+            {{section.title}}
+            <span class="float-right">
               <button class="btn btn-warning btn-sm col-xs-2 btn-group"
-                      (click)="updateSection(section)">
+                      (click)="selectSection(section)">
                 Update
               </button>
               &nbsp;
@@ -41,11 +72,9 @@
                 Delete
               </button>
             </span>
-            </li>
-          </ul>
-
-      </ul>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
-
 </div>
