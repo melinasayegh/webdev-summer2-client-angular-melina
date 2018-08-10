@@ -24,6 +24,7 @@ const appRoutes: Routes = [
   { path: 'section',          component: SectionComponent },
   { path: 'admin',            component: AdminComponent},
   { path: 'course-list',      component: CourseListComponent },
+  { path: 'enrollment',       component: EnrollmentComponent },
   { path: 'course/:courseId', component: CourseViewerComponent },
   { path: 'course/:courseId/module/:moduleId', component: CourseViewerComponent },
   { path: 'course/:courseId/module/:moduleId/lesson/:lessonId', component: CourseViewerComponent },

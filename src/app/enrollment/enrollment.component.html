@@ -2,7 +2,32 @@
 <div class="container container-fluid">
 
   <h2>Enrollments</h2>
-  <p>
-    enrollment works!
-  </p>
+
+  <div class="row">
+    <div class="col-sm-12 col-md-10 col-lg-10">
+      <ul class="list-group">
+        <li class="list-group-item active">Sections</li>
+        <li class="list-group-item webdev"
+            *ngFor="let enrollment of enrollments">
+
+          <p>
+            Grade: {{enrollment.grade}}
+          </p>
+
+          <span class="float-right">
+            <button class="btn btn-success btn-sm col-xs-2 btn-group"
+                    (click)="enroll(enrollment)">
+            Enroll
+          </button>
+            &nbsp;
+          <button class="btn btn-warning btn-sm col-xs-2 btn-group"
+                  (click)="unEnroll(enrollment)">
+            Un-Enroll
+          </button>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
 </div>
