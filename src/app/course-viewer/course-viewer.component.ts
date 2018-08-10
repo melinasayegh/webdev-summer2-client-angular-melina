@@ -9,7 +9,9 @@ import {CourseNavigatorServiceClient} from '../services/coursenavigator.service.
 })
 export class CourseViewerComponent implements OnInit {
 
-  selectedCourse = {};
+  selectedCourse = {
+    title: ''
+  };
 
   constructor(private service: CourseNavigatorServiceClient,
               private route: ActivatedRoute) {
