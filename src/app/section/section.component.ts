@@ -13,10 +13,10 @@ import {UserServiceClient} from '../services/user.service.client';
 export class SectionComponent implements OnInit {
 
   selectedCourseId;
-  course;
-  selectedSection;
+  course = {};
+  selectedSection = {};
   sections = [];
-  currentUser;
+  currentUser = {};
 
   constructor(private router: Router,
               private route: ActivatedRoute,
@@ -54,14 +54,14 @@ export class SectionComponent implements OnInit {
   }
   enroll(section) {
     if (this.currentUser !== {}) {
-      this.enrollmentService.enrollStudent(this.currentUser._id, section._id);
+      this.enrollmentService.enrollStudent(section._id);
     } else {
       this.router.navigate(['login']);
     }
   }
   unEnroll(section) {
     if (this.currentUser !== {}) {
-      this.enrollmentService.unEnrollStudent(this.currentUser._id, section._id);
+      this.enrollmentService.unEnrollStudent(section._id);
     } else {
       this.router.navigate(['login']);
     }

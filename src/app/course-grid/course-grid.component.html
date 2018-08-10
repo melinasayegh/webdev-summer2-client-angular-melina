@@ -40,17 +40,26 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">
-            {{course.title}}
+            <b>{{course.title}}</b>
           </h5>
-          <p class="card-text">
 
+          <p class="card-text">
+            Course Description
           </p>
-          <span class="float-right">
+          <div class="container">
+            <span class="row float-right">
+            <a routerLink="/course/{{course.id}}"
+               class="btn btn-light btn-sm col-xs-2 btn-group">View Course</a>
+            &nbsp;
             <a routerLink="/course/{{course.id}}/section"
-               class="btn btn-light btn-sm col-xs-2 btn-group">View</a>
-            <a routerLink="/course/{{course.id}}/section"
-             class="btn btn-primary btn-sm col-xs-2 btn-group">Enroll</a>
+               class="btn btn-light btn-sm col-xs-2 btn-group">View Sections</a>
           </span>
+            &nbsp;
+            <div class="row float-right">
+              <a routerLink="/course/{{course.id}}/section"
+                 class="btn btn-primary btn-sm col-xs-2 btn-group">Enroll</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

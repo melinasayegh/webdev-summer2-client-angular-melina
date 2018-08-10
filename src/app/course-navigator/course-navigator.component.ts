@@ -15,10 +15,10 @@ export class CourseNavigatorComponent implements OnInit {
   lessons = [];
   widgets = [];
   selectedCourseId;
-  selectedCourse;
-  selectedModule;
-  selectedLesson;
-  selectedWidget;
+  selectedCourse = {};
+  selectedModule = {};
+  selectedLesson = {};
+  selectedWidget = {};
 
   constructor(private service: CourseNavigatorServiceClient) { }
 

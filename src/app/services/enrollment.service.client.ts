@@ -15,7 +15,7 @@ export class EnrollmentServiceClient {
       .then(response => response.json());
   }
 
-  enrollStudent(studentId, sectionId) {
+  enrollStudent(    sectionId) {
     const url = 'http://localhost:3000/api/section/' + sectionId + '/enrollment';
     return fetch(url, {
       method: 'post',
@@ -26,8 +26,9 @@ export class EnrollmentServiceClient {
     }).then(response => response.json());
   }
 
-  unEnrollStudent(studentId, sectionId) {
-    return fetch(SECTION_STUDENT_API_URL.replace('SID', studentId) + sectionId, {
+  unEnrollStudent(sectionId) {
+    const url = 'http://localhost:3000/api/section/' + sectionId + '/enrollment';
+    return fetch(url, {
       method: 'delete',
       credentials: 'include',
       headers: {
