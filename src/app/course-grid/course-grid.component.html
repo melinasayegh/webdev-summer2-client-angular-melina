@@ -1,4 +1,5 @@
-<div class="container-fluid navigator-div">
+<app-header></app-header>
+<div class="container container-fluid navigator-div">
 
   <h2 class="home-h">Home</h2>
 
@@ -47,18 +48,13 @@
             Course Description
           </p>
           <div class="container">
-            <span class="row float-right">
-            <a routerLink="/course/{{course.id}}"
-               class="btn btn-light btn-sm col-xs-2 btn-group">View Course</a>
-            &nbsp;
-            <a routerLink="/course/{{course.id}}/section"
-               class="btn btn-light btn-sm col-xs-2 btn-group">View Sections</a>
-          </span>
-            &nbsp;
-            <div class="row float-right">
+            <span class="row float-right btn-span">
+              <a routerLink="/course/{{course.id}}"
+               class="btn btn-light btn-sm col-xs-2 btn-group">View</a>
+              &nbsp;
               <a routerLink="/course/{{course.id}}/section"
                  class="btn btn-primary btn-sm col-xs-2 btn-group">Enroll</a>
-            </div>
+            </span>
           </div>
         </div>
       </div>

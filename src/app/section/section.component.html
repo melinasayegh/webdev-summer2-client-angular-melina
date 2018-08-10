@@ -1,6 +1,7 @@
-<div class="container-fluid navigator-div">
+<app-header></app-header>
+<div class="container container-fluid navigator-div">
 
-  <h2>Sections for Course {{course.title}}</h2>
+  <h4>Sections for Course {{course.title}}</h4>
 
   <div class="row">
     <div class="col-sm-12 col-md-10 col-lg-10">
@@ -11,7 +12,12 @@
 
           <b>{{section.title}}</b>
           <br/>
-          {{section.takenSeats}} of {{section.maxSeats}} seats filled
+
+          <p>
+            {{section.takenSeats}} available
+            <br/>
+            {{section.maxSeats}} seats total
+          </p>
 
           <span class="float-right">
             <button class="btn btn-success btn-sm col-xs-2 btn-group"

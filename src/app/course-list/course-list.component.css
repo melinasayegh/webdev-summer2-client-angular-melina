@@ -1,6 +1,5 @@
 .container {
-  justify-content: center;
-  display: flex;
+  margin: 20px;
 }
 
 .list-group-item.active.webdev {

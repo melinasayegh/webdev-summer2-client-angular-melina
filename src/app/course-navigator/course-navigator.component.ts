@@ -22,7 +22,6 @@ export class CourseNavigatorComponent implements OnInit {
 
   constructor(private service: CourseNavigatorServiceClient) { }
 
-
   selectCourse(course) {
     this.selectedCourse = course;
     this.selectedCourseId = course.id;

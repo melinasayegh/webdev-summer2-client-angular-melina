@@ -58,6 +58,11 @@ export class ProfileComponent implements OnInit {
 
   }
 
+  loadSections() {
+    this.sectionService.findSectionsForStudent()
+      .then((sections) => this.sections = sections);
+  }
+
   ngOnInit() {
     this.service.profile()
       .then(user => {
@@ -70,7 +75,6 @@ export class ProfileComponent implements OnInit {
         this.address = user.address;
       });
 
-    this.sectionService.findSectionsForStudent()
-      .then(sections => this.sections = sections );
+    this.loadSections();
   }
 }

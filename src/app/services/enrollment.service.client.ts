@@ -19,7 +19,7 @@ export class EnrollmentServiceClient {
   enrollStudent(    sectionId) {
     const url = 'http://localhost:3000/api/section/' + sectionId + '/enrollment';
     const HEROKU_URL = 'https://webdev-server-node-melina.herokuapp.com/api/section/' + sectionId + '/enrollment';
-    return fetch(HEROKU_URL, {
+    return fetch(url, {
       method: 'post',
       credentials: 'include',
       headers: {
