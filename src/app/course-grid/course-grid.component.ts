@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserServiceClient } from '../services/user.service.client';
 import { CourseNavigatorServiceClient } from '../services/coursenavigator.service.client';
 import {EnrollmentServiceClient} from '../services/enrollment.service.client';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-course-grid',
@@ -18,7 +19,8 @@ export class CourseGridComponent implements OnInit {
   enrollments = [];
   selectedSection = {};
 
-  constructor(private userService: UserServiceClient,
+  constructor(private router: Router,
+              private userService: UserServiceClient,
               private courseService: CourseNavigatorServiceClient,
               private enrollmentService: EnrollmentServiceClient) { }
 
@@ -30,9 +32,9 @@ export class CourseGridComponent implements OnInit {
     this.selectedSection = section;
   }
 
-  unEnroll(section) {
-    this.enrollmentService.unEnrollStudent(section._id)
-        .then(() => alert('You have been un-enrolled.'));
+  unEnroll(sectionId) {
+    this.enrollmentService.unEnrollStudent(sectionId)
+      .then(() => location.reload(), () => location.reload());
   }
 
   ngOnInit() {

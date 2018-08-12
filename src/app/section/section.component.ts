@@ -57,6 +57,7 @@ export class SectionComponent implements OnInit {
   enroll(section) {
     if (this.currentUser !== {}) {
       this.enrollmentService.enrollStudent(section._id)
+        .then(() =>   this.router.navigate(['home']))
         .then(() => alert('You have been enrolled.'),
           () => this.router.navigate(['login'])
             .then(() => alert('Please sign in and try again.'))

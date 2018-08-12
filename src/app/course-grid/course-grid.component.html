@@ -20,7 +20,7 @@
               Seats: {{enrollment.section.availableSeats}} of {{enrollment.section.maxSeats}}
             </p>
             <span class="float-right">
-            <a routerLink="/course/section/{{enrollment.section._id}}"
+            <a routerLink="/course/{{enrollment.section.courseId}}"
                class="btn btn-light btn-sm col-xs-2 btn-group">View</a>
             <button (click)="unEnroll(enrollment.section._id)"
                class="btn btn-warning btn-sm col-xs-2 btn-group">Un-Enroll</button>
