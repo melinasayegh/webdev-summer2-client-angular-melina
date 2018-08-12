@@ -100,15 +100,13 @@
     <br/>
     <br/>
 
-    <h2>Sections ({{sections.length}})</h2>
-
-    <ul class="list-group">
-      <li *ngFor="let enrollment of sections" class="list-group-item">
-        {{enrollment.section.name}}
-        ({{enrollment.section.seats}})
-      </li>
-    </ul>
-
-
+    <h4>Your Enrollments:</h4>
+    <div class="enrollments-container">
+      <ul class="list-group" *ngFor="let enrollment of enrollments">
+        <li class="list-group-item">
+          {{enrollment.section.title}}
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

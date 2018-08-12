@@ -45,25 +45,31 @@ export class SectionComponent implements OnInit {
           this.currentUser = {};
         }
       } );
-  }
+  };
 
   findCourseById = (courseId) => {
     this.courseService.findCourseById(courseId)
       .then((course) => this.course = course);
-  }
+  };
   selectSection(section) {
     this.selectedSection = section;
   }
   enroll(section) {
     if (this.currentUser !== {}) {
-      this.enrollmentService.enrollStudent(section._id);
+      this.enrollmentService.enrollStudent(section._id)
+        .then(() => alert('You have been enrolled.'),
+          () => this.router.navigate(['login'])
+            .then(() => alert('Please sign in and try again.'))
+        );
     } else {
       this.router.navigate(['login']);
     }
   }
   unEnroll(section) {
     if (this.currentUser !== {}) {
-      this.enrollmentService.unEnrollStudent(section._id);
+      this.enrollmentService.unEnrollStudent(section._id)
+        .then(() => alert('You have been un-enrolled.'),
+          () => alert('You are not enrolled in this section.'));
     } else {
       this.router.navigate(['login']);
     }

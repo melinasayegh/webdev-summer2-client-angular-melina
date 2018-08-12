@@ -49,6 +49,7 @@ export class EnrollmentComponent implements OnInit {
     this.sectionService.findSectionById(sectionId)
       .then((section) => this.section = section);
   }
+
   selectEnrollment(enrollment) {
     this.selectedEnrollment = enrollment;
   }

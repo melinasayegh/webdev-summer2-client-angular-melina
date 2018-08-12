@@ -10,20 +10,20 @@
 
     <div *ngIf="isLoggedIn" class="row grid">
       <div class="col-sm-3"
-           *ngFor="let section of sections"
-           [ngClass]="{'active': section._id === selectedSection._id}"
-           (click)="selectSection(section)">
+           *ngFor="let enrollment of enrollments"
+           [ngClass]="{'active': enrollment.section._id === selectedSection._id}"
+           (click)="selectSection(enrollment.section)">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">{{section.title}}</h5>
+            <h5 class="card-title">{{enrollment.section.title}}</h5>
             <p class="card-text">
-              Seats: {{section.takenSeats}} of {{section.maxSeats}}
+              Seats: {{enrollment.section.availableSeats}} of {{enrollment.section.maxSeats}}
             </p>
             <span class="float-right">
-            <a routerLink="/course/section/{{section._id}}"
+            <a routerLink="/course/section/{{enrollment.section._id}}"
                class="btn btn-light btn-sm col-xs-2 btn-group">View</a>
-            <a routerLink="/course/section/{{section._id}}"
-               class="btn btn-warning btn-sm col-xs-2 btn-group">Un-Enroll</a>
+            <button (click)="unEnroll(enrollment.section._id)"
+               class="btn btn-warning btn-sm col-xs-2 btn-group">Un-Enroll</button>
           </span>
           </div>
         </div>

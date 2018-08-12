@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
-import { User } from '../models/user.model.client';
 import { UserServiceClient } from '../services/user.service.client';
-import { SectionServiceClient } from '../services/section.service.client';
+import {EnrollmentServiceClient} from '../services/enrollment.service.client';
 
 @Component({
   selector: 'app-profile',
@@ -12,7 +11,7 @@ import { SectionServiceClient } from '../services/section.service.client';
 export class ProfileComponent implements OnInit {
 
   constructor(private service: UserServiceClient,
-              private sectionService: SectionServiceClient,
+              private enrollmentService: EnrollmentServiceClient,
               private router: Router) { }
 
   user = {};
@@ -24,11 +23,7 @@ export class ProfileComponent implements OnInit {
   email;
   address;
 
-  sections = [];
-
-  update(user) {
-    console.log(user);
-  }
+  enrollments = [];
 
   logout() {
     this.service.logout()
@@ -46,7 +41,7 @@ export class ProfileComponent implements OnInit {
       phoneNumber: this.phoneNum,
       email: this.email,
       address: this.address,
-    }
+    };
     this.service.updateProfile(newUser);
 
   }
@@ -59,8 +54,8 @@ export class ProfileComponent implements OnInit {
   }
 
   loadSections() {
-    this.sectionService.findSectionsForStudent()
-      .then((sections) => this.sections = sections);
+    this.enrollmentService.findSectionsForStudent()
+      .then((enrollments) => this.enrollments = enrollments);
   }
 
   ngOnInit() {
@@ -74,7 +69,6 @@ export class ProfileComponent implements OnInit {
         this.email = user.email;
         this.address = user.address;
       });
-
     this.loadSections();
   }
 }

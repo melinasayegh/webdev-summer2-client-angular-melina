@@ -19,7 +19,7 @@ export class AdminComponent implements OnInit {
   courseIsSelected = false;
 
   sectionName;
-  takenSeats;
+  availableSeats;
   maxSeats;
 
 
@@ -51,14 +51,14 @@ export class AdminComponent implements OnInit {
         courseId: this.selectedCourse.id,
         title: this.selectedCourse.title + ' Section ' + (numSections),
         maxSeats: 20,
-        takenSeats: 0
+        availableSeats: 20
       };
       if (this.sectionName !== undefined) {
         defaultSection.title = this.sectionName;
       }
 
-      if (this.takenSeats !== undefined) {
-        defaultSection.takenSeats = this.takenSeats;
+      if (this.availableSeats !== undefined) {
+        defaultSection.availableSeats = this.availableSeats;
       }
 
       if (this.maxSeats !== undefined) {
@@ -80,7 +80,7 @@ export class AdminComponent implements OnInit {
       courseId: course.id,
       title: course.title + ' Section ' + (numSections),
       maxSeats: 20,
-      takenSeats: 0
+      availableSeats: 20
     };
     this.sectionService.createSection(course.id, section)
       .then(() => this.viewSections(course));
@@ -88,7 +88,7 @@ export class AdminComponent implements OnInit {
 
   selectSection(section) {
     this.sectionName = section.title;
-    this.takenSeats = section.takenSeats;
+    this.availableSeats = section.availableSeats;
     this.maxSeats = section.maxSeats;
   }
 
@@ -97,7 +97,7 @@ export class AdminComponent implements OnInit {
       courseId: this.selectedCourse.id,
       title: this.sectionName,
       maxSeats: this.maxSeats,
-      takenSeats: this.takenSeats
+      availableSeats: this.availableSeats
     };
 
     this.sectionService.updateSection(this.selectedCourse.id, section)
