@@ -1,0 +1,10 @@
+<app-header></app-header>
+<div class="container container-fluid navigator-div">
+  <h2>Submissions</h2>
+
+  <ul class="list-group">
+    <li *ngFor="let submission of submissions" class="list-group-item">
+      {{submission.username}}
+    </li>
+  </ul>
+</div>

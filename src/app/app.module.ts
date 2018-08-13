@@ -31,6 +31,7 @@ import { EssayQuestionComponent } from './essay-question/essay-question.componen
 import { FillBlanksQuestionComponent } from './fill-blanks-question/fill-blanks-question.component';
 import { TrueFalseQuestionComponent } from './true-false-question/true-false-question.component';
 import {QuizServiceClient} from './services/quiz.service.client';
+import { QuizSubmissionsComponent } from './quiz-submissions/quiz-submissions.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import {QuizServiceClient} from './services/quiz.service.client';
     MultipleChoiceQuestionComponent,
     EssayQuestionComponent,
     FillBlanksQuestionComponent,
-    TrueFalseQuestionComponent
+    TrueFalseQuestionComponent,
+    QuizSubmissionsComponent
   ],
   imports: [
     BrowserModule,
