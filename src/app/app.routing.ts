@@ -8,10 +8,10 @@ import { SectionComponent } from './section/section.component';
 import { WhiteboardComponent } from './whiteboard/whiteboard.component';
 import { CourseGridComponent } from './course-grid/course-grid.component';
 import { AdminComponent } from './admin/admin.component';
-import { ModulesComponent } from './modules/modules.component';
 import { CourseListComponent } from './course-list/course-list.component';
 import { CourseViewerComponent } from './course-viewer/course-viewer.component';
-import {LessonsComponent} from './lessons/lessons.component';
+import { };
+import { };
 
 const appRoutes: Routes = [
   { path: '',                 component: WhiteboardComponent },
@@ -22,9 +22,10 @@ const appRoutes: Routes = [
   { path: 'course',           component: CourseNavigatorComponent },
   { path: 'enrollment',       component: EnrollmentComponent },
   { path: 'section',          component: SectionComponent },
-  { path: 'admin',            component: AdminComponent},
+  { path: 'admin',            component: AdminComponent },
+  { path: 'quiz',             component: QuizListComponent },
+  { path: 'quiz/:quizId',     component: QuizTakerComponent },
   { path: 'course-list',      component: CourseListComponent },
-  { path: 'enrollment',       component: EnrollmentComponent },
   { path: 'course/:courseId', component: CourseViewerComponent },
   { path: 'course/:courseId/module/:moduleId', component: CourseViewerComponent },
   { path: 'course/:courseId/module/:moduleId/lesson/:lessonId', component: CourseViewerComponent },
