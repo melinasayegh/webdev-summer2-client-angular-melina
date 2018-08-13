@@ -10,8 +10,8 @@ import { CourseGridComponent } from './course-grid/course-grid.component';
 import { AdminComponent } from './admin/admin.component';
 import { CourseListComponent } from './course-list/course-list.component';
 import { CourseViewerComponent } from './course-viewer/course-viewer.component';
-import { };
-import { };
+import { QuizListComponent } from './quiz-list/quiz-list.component';
+import { QuizTakerComponent } from './quiz-taker/quiz-taker.component';
 
 const appRoutes: Routes = [
   { path: '',                 component: WhiteboardComponent },
