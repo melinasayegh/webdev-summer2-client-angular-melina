@@ -5,15 +5,14 @@ export class QuizServiceClient {
   submitQuiz(quiz) {
     const url = 'http://localhost:3000/api/quiz/QID/submission';
     const HEROKU_URL = 'https://webdev-server-node-melina.herokuapp.com/api/quiz/QID/submission';
-    fetch(url.replace('QID', quiz._id), {
+    return fetch(url.replace('QID', quiz._id), {
       method: 'post',
       body: JSON.stringify(quiz),
       credentials: 'include',
       headers: {
         'content-type': 'application/json',
       }
-    })
-      .then(response => response.json());
+    }).then(response => response.json());
   }
   createQuiz(quiz) {
     const url = 'http://localhost:3000/api/quiz/QID/submission';
@@ -22,14 +21,19 @@ export class QuizServiceClient {
   findAllQuizzes() {
     const url = 'http://localhost:3000/api/quiz';
     const HEROKU_URL = 'https://webdev-server-node-melina.herokuapp.com/api/quiz/';
-    fetch(url)
+    return fetch(url)
       .then(response => response.json());
   }
   findQuizById(quizId) {
     const url = 'http://localhost:3000/api/quiz/';
     const HEROKU_URL = 'https://webdev-server-node-melina.herokuapp.com/api/quiz/';
-    fetch(url + quizId)
-      .then(response => response.json());
+    return fetch(url + quizId, {
+      method: 'get',
+      credentials: 'include',
+      headers: {
+        'content-type': 'application/json',
+      }
+    }).then(response => response.json());
   }
   updateQuiz(quizId, quiz) {
     const url = 'http://localhost:3000/api/quiz/QID/submission';

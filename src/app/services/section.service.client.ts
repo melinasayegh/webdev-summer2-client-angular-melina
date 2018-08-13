@@ -1,13 +1,3 @@
-/*
-const SECTION_API_URL = 'https://webdev-server-node-melina.herokuapp.com/api/section';
-const SECTION_COURSE_API_URL = 'https://webdev-server-node-melina.herokuapp.com/api/course/CID/section';
-*/
-
-const SECTION_API_URL = 'http://localhost:3000/api/section';
-const SECTION_COURSE_API_URL = 'http://localhost:3000/api/course/CID/section';
-
-const HEROKU_SECTION_API_URL = 'https://webdev-server-node-melina.herokuapp.com/api/section';
-const HEROKU_SECTION_COURSE_API_URL = 'https://webdev-server-node-melina.herokuapp.com/api/course/CID/section';
 
 import { Injectable } from '@angular/core';
 
@@ -15,24 +5,30 @@ import { Injectable } from '@angular/core';
 export class SectionServiceClient {
 
   findAllSections() {
-    return fetch(HEROKU_SECTION_API_URL)
+    const url = 'http://localhost:3000/api/section';
+    const HEROKU_URL = 'https://webdev-server-node-melina.herokuapp.com/api/section';
+    return fetch(url)
       .then(response => response.json());
   }
 
   findSectionsForCourse(courseId) {
     const url = 'http://localhost:3000/api/course/CID/section';
     const HEROKU_URL = 'https://webdev-server-node-melina.herokuapp.com/api/course/CID/section';
-    return fetch(HEROKU_URL.replace('CID', courseId))
+    return fetch(url.replace('CID', courseId))
       .then(response => response.json());
   }
 
   findSectionById(sectionId) {
-    return fetch(HEROKU_SECTION_API_URL + '/' + sectionId)
+    const url = 'http://localhost:3000/api/section';
+    const HEROKU_URL = 'https://webdev-server-node-melina.herokuapp.com/api/section';
+    return fetch(url + '/' + sectionId)
       .then(response => response.json());
   }
 
   createSection(courseId, section) {
-    return fetch(HEROKU_SECTION_COURSE_API_URL.replace('CID', courseId), {
+    const url = 'http://localhost:3000/api/course/CID/section';
+    const HEROKU_URL = 'https://webdev-server-node-melina.herokuapp.com/api/course/CID/section';
+    return fetch(url.replace('CID', courseId), {
       method: 'post',
       body: JSON.stringify(section),
       credentials: 'include',
@@ -43,7 +39,9 @@ export class SectionServiceClient {
   }
 
   updateSection(courseId, section) {
-    return fetch(HEROKU_SECTION_COURSE_API_URL.replace('CID', courseId), {
+    const url = 'http://localhost:3000/api/course/CID/section';
+    const HEROKU_URL = 'https://webdev-server-node-melina.herokuapp.com/api/course/CID/section';
+    return fetch(url.replace('CID', courseId), {
       method: 'put',
       body: JSON.stringify(section),
       credentials: 'include',
@@ -54,7 +52,9 @@ export class SectionServiceClient {
   }
 
   deleteSection(sectionId) {
-    return fetch(HEROKU_SECTION_API_URL + '/' + sectionId, {
+    const url = 'http://localhost:3000/api/section';
+    const HEROKU_URL = 'https://webdev-server-node-melina.herokuapp.com/api/section';
+    return fetch(url + '/' + sectionId, {
       method: 'delete',
       credentials: 'include'
     }).then(response => response.json());
