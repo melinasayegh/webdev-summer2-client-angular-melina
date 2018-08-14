@@ -10,7 +10,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class QuizTakerComponent implements OnInit {
 
-  quiz = {};
+  quiz = {
+    title: ''
+  };
   questions = [];
 
   constructor(private route: ActivatedRoute,
