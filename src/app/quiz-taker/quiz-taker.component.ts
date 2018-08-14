@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {QuizServiceClient} from '../services/quiz.service.client';
-import {ActivatedRoute} from '@angular/router';
-import {CourseNavigatorServiceClient} from '../services/coursenavigator.service.client';
+import { QuizServiceClient } from '../services/quiz.service.client';
+import { ActivatedRoute } from '@angular/router';
+//import { SubmissionServiceClient } from '../services/submission.service.client';
 
 @Component({
   selector: 'app-quiz-taker',
@@ -10,19 +10,25 @@ import {CourseNavigatorServiceClient} from '../services/coursenavigator.service.
 })
 export class QuizTakerComponent implements OnInit {
 
-  quizId = '';
+  quiz = {};
   questions = [];
 
   constructor(private route: ActivatedRoute,
               private quizService: QuizServiceClient) { }
+              //private submissionService: SubmissionServiceClient) {}
 
-  submitQuiz = quiz =>
-    this.quizService.submitQuiz(quiz)
-      .then(submission => console.log(submission));
+  //submitQuiz = quiz =>
+  //  this.submissionService.submitQuiz(quiz)
+  //    .then(submission => console.log(submission));
 
   ngOnInit() {
     this.route.params.subscribe(params =>
       this.quizService.findQuizById(params['quizId'])
-        .then(quiz => this.questions = quiz.questions));
+        .then(quiz => {
+          this.quiz = quiz;
+          this.questions = quiz.questions;
+        })
+    );
   }
 }
+
