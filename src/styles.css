@@ -4,8 +4,12 @@
   font-family: "Open Sans", sans-serif;
 }
 
+.container {
+  margin: 20px;
+}
+
 .centered {
-  align: center;
+  align-content: center;
   justify-content: center;
 }
 
@@ -49,4 +53,18 @@
   font-weight: bold;
   vertical-align: middle;
   text-align: center;
+}
+
+.list-group-item.active.webdev {
+  z-index: 2;
+  color: #fff;
+  background-color: #00a8ff;
+  border-color: #00a8ff;
+}
+
+.nav-item.active.webdev {
+  z-index: 2;
+  color: #fff;
+  background-color: #00a8ff;
+  border-color: #00a8ff;
 }

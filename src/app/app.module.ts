@@ -24,6 +24,14 @@ import { WidgetsComponent } from './widgets/widgets.component';
 import { AdminComponent } from './admin/admin.component';
 import { CourseListComponent } from './course-list/course-list.component';
 import { CourseViewerComponent } from './course-viewer/course-viewer.component';
+import { QuizListComponent } from './quiz-list/quiz-list.component';
+import { QuizTakerComponent } from './quiz-taker/quiz-taker.component';
+import { MultipleChoiceQuestionComponent } from './multiple-choice-question/multiple-choice-question.component';
+import { EssayQuestionComponent } from './essay-question/essay-question.component';
+import { FillBlanksQuestionComponent } from './fill-blanks-question/fill-blanks-question.component';
+import { TrueFalseQuestionComponent } from './true-false-question/true-false-question.component';
+import {QuizServiceClient} from './services/quiz.service.client';
+import { QuizSubmissionsComponent } from './quiz-submissions/quiz-submissions.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +50,14 @@ import { CourseViewerComponent } from './course-viewer/course-viewer.component';
     SectionComponent,
     AdminComponent,
     CourseListComponent,
-    CourseViewerComponent
+    CourseViewerComponent,
+    QuizListComponent,
+    QuizTakerComponent,
+    MultipleChoiceQuestionComponent,
+    EssayQuestionComponent,
+    FillBlanksQuestionComponent,
+    TrueFalseQuestionComponent,
+    QuizSubmissionsComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +68,8 @@ import { CourseViewerComponent } from './course-viewer/course-viewer.component';
     UserServiceClient,
     CourseNavigatorServiceClient,
     SectionServiceClient,
-    EnrollmentServiceClient
+    EnrollmentServiceClient,
+    QuizServiceClient
   ],
   bootstrap: [AppComponent]
 })
