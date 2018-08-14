@@ -22,6 +22,7 @@
             <span class="row float-right btn-span">
               <a routerLink="/course/{{enrollment.section.courseId}}/section"
                  class="btn btn-light btn-sm col-xs-2 btn-group">View</a>
+              &nbsp;
               <button (click)="unEnroll(enrollment.section._id)"
                  class="btn btn-warning btn-sm col-xs-2 btn-group">Un-Enroll</button>
             </span>
@@ -51,6 +52,7 @@
             <span class="row float-right btn-span">
               <a routerLink="/course/{{course.id}}"
                class="btn btn-light btn-sm col-xs-2 btn-group">View</a>
+              &nbsp;
               <a routerLink="/course/{{course.id}}/section"
                  class="btn btn-primary btn-sm col-xs-2 btn-group">Enroll</a>
             </span>

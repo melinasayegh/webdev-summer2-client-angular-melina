@@ -24,6 +24,7 @@ export class ProfileComponent implements OnInit {
   address;
 
   enrollments = [];
+  noEnrollments = false;
 
   logout() {
     this.service.logout()
@@ -55,7 +56,7 @@ export class ProfileComponent implements OnInit {
 
   loadSections() {
     this.enrollmentService.findSectionsForStudent()
-      .then((enrollments) => this.enrollments = enrollments);
+      .then((enrollments) => this.enrollments = enrollments)
   }
 
   ngOnInit() {

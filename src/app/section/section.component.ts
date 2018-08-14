@@ -60,7 +60,7 @@ export class SectionComponent implements OnInit {
       this.enrollmentService.enrollStudent(section._id)
         .then((response) => {
           if (response.status === 200) {
-            alert('You have been enrolled from this course.');
+            alert('You have been enrolled in this section.');
             this.router.navigate(['home']);
           } else if (response.status === 409) {
             alert('There is no available seat left for this section.');
