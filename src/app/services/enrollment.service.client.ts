@@ -19,7 +19,7 @@ export class EnrollmentServiceClient {
     return fetch(HEROKU_URL, {
       method: 'post',
       credentials: 'include'
-    }).then(response => response.json());
+    })
   }
 
   unEnrollStudent(sectionId) {
@@ -31,7 +31,7 @@ export class EnrollmentServiceClient {
       headers: {
         'content-type': 'application/json'
       }
-    }).then(response => response.json());
+    })
   }
 }
 
