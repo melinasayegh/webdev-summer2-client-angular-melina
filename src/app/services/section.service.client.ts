@@ -18,6 +18,13 @@ export class SectionServiceClient {
       .then(response => response.json());
   }
 
+  findSectionsForStudent(studentId) {
+    const url = 'http://localhost:3000/api/section/student/SID';
+    const HEROKU_URL = 'https://webdev-server-node-melina.herokuapp.com/api/section/student/SID';
+    return fetch(HEROKU_URL.replace('SID', studentId))
+      .then(response => response.json());
+  }
+
   findSectionById(sectionId) {
     const url = 'http://localhost:3000/api/section';
     const HEROKU_URL = 'https://webdev-server-node-melina.herokuapp.com/api/section';

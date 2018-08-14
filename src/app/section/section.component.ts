@@ -39,39 +39,55 @@ export class SectionComponent implements OnInit {
   updateCurrentUser = () => {
     this.userService.currentUser()
       .then((user) => {
-        if (user.username !== undefined && user.username !== '') {
+        if (user.username !== undefined || user.username !== '') {
           this.currentUser = user;
         } else {
           this.currentUser = {};
         }
       } );
-  };
+  }
 
   findCourseById = (courseId) => {
     this.courseService.findCourseById(courseId)
       .then((course) => this.course = course);
-  };
+  }
   selectSection(section) {
     this.selectedSection = section;
   }
   enroll(section) {
     if (this.currentUser !== {}) {
+
       this.enrollmentService.enrollStudent(section._id)
-        .then(() =>   this.router.navigate(['home']))
-        .then(() => alert('You have been enrolled.'),
-          () => this.router.navigate(['login'])
-            .then(() => alert('Please sign in and try again.'))
-        );
+        .then((response) => {
+          if (response.status === 200) {
+            alert('You have been enrolled from this course.');
+            this.router.navigate(['home']);
+          } else if (response.status === 409) {
+            alert('There is no available seat left for this section.');
+          } else if (response.status === 403) {
+            alert('You are already enrolled in this section.');
+          } else if (response.status === 406) {
+            alert('You are already enrolled in a section of this course.');
+          }
+        });
     } else {
+      // not logged in
+      alert('Please log in to enroll.');
       this.router.navigate(['login']);
     }
   }
   unEnroll(section) {
     if (this.currentUser !== {}) {
       this.enrollmentService.unEnrollStudent(section._id)
-        .then(() => alert('You have been un-enrolled.'),
-          () => alert('You are not enrolled in this section.'));
+        .then((response) => {
+          if (response.status === 200) {
+            alert('You have been un-enrolled from this course.');
+          } else if (response.status === 400) {
+            alert('You are not enrolled in this course.');
+          }
+        });
     } else {
+      alert('Please log in first.');
       this.router.navigate(['login']);
     }
   }
