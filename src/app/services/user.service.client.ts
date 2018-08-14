@@ -34,7 +34,7 @@ export class UserServiceClient {
     return fetch(HEROKU_URL, {
       method: 'post',
       credentials: 'include'
-    })
+    });
   }
 
   profile() {
@@ -51,7 +51,7 @@ export class UserServiceClient {
     return fetch(HEROKU_URL, {
         method: 'delete',
       credentials: 'include', // include, same-origin, *omit
-      }).then(response => response.json());
+      });
   }
 
   updateProfile(newProfile) {
@@ -82,6 +82,6 @@ export class UserServiceClient {
     const HEROKU_URL = 'https://webdev-server-node-melina.herokuapp.com/api/currentUser';
     return fetch(HEROKU_URL, {
       credentials: 'include'
-    }).then((response) => (response.json()));
+    });
   }
 }
