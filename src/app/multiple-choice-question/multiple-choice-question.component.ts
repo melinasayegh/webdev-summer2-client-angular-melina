@@ -8,10 +8,14 @@ import {Component, Input, OnInit} from '@angular/core';
 export class MultipleChoiceQuestionComponent implements OnInit {
 
   @Input() question;
+  selectedChoiceValue = '';
 
   constructor() { }
 
-  selected = choice => this.question.multipleChoiceAnswer = this.question.choices.indexOf(choice);
+  selected = choiceVal => {
+    this.question.multipleChoiceAnswer = choiceVal;
+    this.selectedChoiceValue = choiceVal;
+  }
 
   ngOnInit() {
   }

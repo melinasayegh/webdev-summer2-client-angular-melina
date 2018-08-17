@@ -1,9 +1,10 @@
+<i>Fill in the following blanks:</i>
 <span [ngSwitch]="blank.indexOf('*')" *ngFor="let blank of question.blanks">
   <span *ngSwitchCase="-1">
     {{blank}}
   </span>
   <span *ngSwitchCase="0">
-    <input [(ngModel)]="question.fillBlanksAnswers[blank.split('=')[0].replace('*','')]"
+    <input [(ngModel)]="question.fillBlanksAnswers[blank]"
            placeholder="{{blank.split('=')[0].replace('*','')}}"
            style="border-color:black">
   </span>

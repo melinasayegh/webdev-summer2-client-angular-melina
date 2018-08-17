@@ -32,6 +32,11 @@ import { FillBlanksQuestionComponent } from './fill-blanks-question/fill-blanks-
 import { TrueFalseQuestionComponent } from './true-false-question/true-false-question.component';
 import {QuizServiceClient} from './services/quiz.service.client';
 import { QuizSubmissionsComponent } from './quiz-submissions/quiz-submissions.component';
+import {SubmissionServiceClient} from './services/submission.service.client';
+import { EssayAnswerComponent } from './essay-answer/essay-answer.component';
+import { FillBlanksAnswerComponent } from './fill-blanks-answer/fill-blanks-answer.component';
+import { MultipleChoiceAnswerComponent } from './multiple-choice-answer/multiple-choice-answer.component';
+import { TrueFalseAnswerComponent } from './true-false-answer/true-false-answer.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +62,11 @@ import { QuizSubmissionsComponent } from './quiz-submissions/quiz-submissions.co
     EssayQuestionComponent,
     FillBlanksQuestionComponent,
     TrueFalseQuestionComponent,
-    QuizSubmissionsComponent
+    QuizSubmissionsComponent,
+    EssayAnswerComponent,
+    FillBlanksAnswerComponent,
+    MultipleChoiceAnswerComponent,
+    TrueFalseAnswerComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +78,8 @@ import { QuizSubmissionsComponent } from './quiz-submissions/quiz-submissions.co
     CourseNavigatorServiceClient,
     SectionServiceClient,
     EnrollmentServiceClient,
-    QuizServiceClient
+    QuizServiceClient,
+    SubmissionServiceClient
   ],
   bootstrap: [AppComponent]
 })

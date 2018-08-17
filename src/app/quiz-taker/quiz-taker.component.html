@@ -4,19 +4,19 @@
 
   <h3>
     {{quiz.title}}
-    <button class="btn btn-primary float-right">
+    <button (click)="submitQuiz()"
+            class="btn btn-primary float-right">
       Submit
     </button>
   </h3>
 
   <ul class="list-group">
     <li *ngFor="let question of questions" class="list-group-item">
-      <h4>
+      <h5>
         {{question.title}}
-        <span class="float-right">{{question.points}}</span>
-      </h4>
+        <span class="float-right">{{question.points}}pts</span>
+      </h5>
       <p>{{question.description}}</p>
-
 
       <hr class="half-rule"/>
 
@@ -34,6 +34,7 @@
 
         <app-multiple-choice-question
           [question]="question"
+
           *ngSwitchCase="'MULTIPLE_CHOICE'">
         </app-multiple-choice-question>
 
