@@ -1,3 +1,7 @@
-<p>
-  multiple-choice-answer works!
-</p>
+<h5>{{answer.description}}</h5>
+<li class="list-group-item"
+    *ngFor="let choice of answer.choices">
+  {{choice.choiceValue}}. {{choice.text}}
+</li>
+<h5>Your answer: </h5>
+<p>{{answer.choices}}</p>

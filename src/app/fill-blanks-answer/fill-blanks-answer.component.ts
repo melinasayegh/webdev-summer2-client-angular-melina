@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-fill-blanks-answer',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./fill-blanks-answer.component.css']
 })
 export class FillBlanksAnswerComponent implements OnInit {
+
+  @Input() answer;
 
   constructor() { }
 

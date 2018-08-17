@@ -5,31 +5,31 @@ export class SubmissionServiceClient {
 
   loadAllSubmissions(quizId) {
     const url = 'http://localhost:3000/api/quiz/QID/submissions';
-    const HEROKU_URL = 'http://localhost:3000/api/quiz/QID/submissions';
+    const HEROKU_URL = 'https://webdev-server-node-melina.herokuapp.com/api/quiz/QID/submissions';
     return fetch(url.replace('QID', quizId))
       .then(response => response.json());
   }
 
   loadSubmissionsForQuizAndStudent(quizId) {
     const url = 'http://localhost:3000/api/quiz/QID/submission/student';
-    const HEROKU_URL = 'http://localhost:3000/api/quiz/QID/submission/student';
+    const HEROKU_URL = 'https://webdev-server-node-melina.herokuapp.com/api/quiz/QID/submission/student';
     return fetch(url.replace('QID', quizId))
       .then(response => response.json());
   }
 
   loadSubmissionsForQuiz(quizId) {
     const url = 'http://localhost:3000/api/quiz/QID/submission';
-    const HEROKU_URL = 'http://localhost:3000/api/quiz/QID/submission';
+    const HEROKU_URL = 'https://webdev-server-node-melina.herokuapp.com/api/quiz/QID/submission';
     return fetch(url.replace('QID', quizId))
       .then(response => response.json());
   }
 
-  submitQuiz(quiz) {
+  submitQuiz(quizId, submission) {
     const url = 'http://localhost:3000/api/quiz/QID/submission';
     const HEROKU_URL = 'https://webdev-server-node-melina.herokuapp.com/api/quiz/QID/submission';
-    return fetch(url.replace('QID', quiz._id), {
+    return fetch(url.replace('QID', quizId), {
       method: 'post',
-      body: JSON.stringify(quiz),
+      body: JSON.stringify(submission),
       credentials: 'include',
       headers: {
         'content-type': 'application/json',

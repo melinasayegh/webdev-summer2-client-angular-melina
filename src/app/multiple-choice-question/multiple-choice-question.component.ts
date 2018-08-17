@@ -13,7 +13,7 @@ export class MultipleChoiceQuestionComponent implements OnInit {
   constructor() { }
 
   selected = choiceVal => {
-    this.question.multipleChoiceAnswer = choiceVal;
+    this.question.choiceAnswer = choiceVal;
     this.selectedChoiceValue = choiceVal;
   }
 

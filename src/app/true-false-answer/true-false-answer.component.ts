@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-true-false-answer',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./true-false-answer.component.css']
 })
 export class TrueFalseAnswerComponent implements OnInit {
+
+  @Input() answer;
 
   constructor() { }
 

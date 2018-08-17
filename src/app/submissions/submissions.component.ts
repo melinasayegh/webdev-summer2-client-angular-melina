@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SubmissionServiceClient} from '../services/submission.service.client';
+import {Submission} from '../models/submission.model.client';
 import {UserServiceClient} from '../services/user.service.client';
 
 @Component({
-  selector: 'app-quiz-submissions',
-  templateUrl: './quiz-submissions.component.html',
-  styleUrls: ['./quiz-submissions.component.css']
+  selector: 'app-submissions',
+  templateUrl: './submissions.component.html',
+  styleUrls: ['./submissions.component.css']
 })
-export class QuizSubmissionsComponent implements OnInit {
+export class SubmissionsComponent implements OnInit {
 
   quizId = '';
-  submissions = [];
+  submissions: Submission[] = [];
   isLoggedIn = false;
   isAdminUser = false;
   currentUser = {};

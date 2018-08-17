@@ -12,7 +12,7 @@ import { CourseListComponent } from './course-list/course-list.component';
 import { CourseViewerComponent } from './course-viewer/course-viewer.component';
 import { QuizListComponent } from './quiz-list/quiz-list.component';
 import { QuizTakerComponent } from './quiz-taker/quiz-taker.component';
-import {QuizSubmissionsComponent} from './quiz-submissions/quiz-submissions.component';
+import { SubmissionsComponent } from './submissions/submissions.component';
 
 const appRoutes: Routes = [
   { path: '',                 component: WhiteboardComponent },
@@ -26,7 +26,8 @@ const appRoutes: Routes = [
   { path: 'admin',            component: AdminComponent },
   { path: 'quiz',             component: QuizListComponent },
   { path: 'quiz/:quizId',     component: QuizTakerComponent },
-  { path: 'quiz/:quizId/submission', component: QuizSubmissionsComponent },
+  { path: 'quiz/:quizId/submission', component: SubmissionsComponent },
+  { path: 'quiz/:quizId/submission/student', component: SubmissionsComponent },
   { path: 'course-list',      component: CourseListComponent },
   { path: 'course/:courseId', component: CourseViewerComponent },
   { path: 'course/:courseId/module/:moduleId', component: CourseViewerComponent },

@@ -1,17 +1,14 @@
 <app-header></app-header>
+{{quiz.title}}
 <div class="container container-fluid navigator-div">
   <h2>Quiz Taker</h2>
+  {{quiz._id}}
 
-  <h3>
-    {{quiz.title}}
-    <button (click)="submitQuiz()"
-            class="btn btn-primary float-right">
-      Submit
-    </button>
-  </h3>
+  <h3>{{quiz.title}}</h3>
+
 
   <ul class="list-group">
-    <li *ngFor="let question of questions" class="list-group-item">
+    <li *ngFor="let question of quiz.questions" class="list-group-item">
       <h5>
         {{question.title}}
         <span class="float-right">{{question.points}}pts</span>
@@ -46,4 +43,18 @@
       </div>
     </li>
   </ul>
+
+  <span class="float-right">
+
+        <button (click)="cancel()"
+                class="btn btn-danger btn-sm col-xs-2 btn-group">
+          Cancel
+        </button>
+    &nbsp;
+        <button (click)="submitQuiz()"
+               class="btn btn-success btn-sm col-xs-2 btn-group">
+          Submit
+        </button>
+
+    </span>
 </div>

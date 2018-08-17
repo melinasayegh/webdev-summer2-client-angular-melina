@@ -1,12 +1,11 @@
 <ul class="list-group">
-  <i>Choose one of the following options:</i>
   <li *ngFor="let choice of question.choices"
       class="list-group-item"
       [ngClass]="{'active': choice.value === selectedChoiceValue}">
     <label>
       <input (click)="selected(choice.value)" name="{{question._id}}"
              type="radio">
-      {{choice.value}}.{{choice.text}}
+      {{choice.value}}. &nbsp; {{choice.text}}
     </label>
   </li>
 </ul>
