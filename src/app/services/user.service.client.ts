@@ -34,7 +34,7 @@ export class UserServiceClient {
     return fetch(url, {
       method: 'post',
       credentials: 'include'
-    })
+    });
   }
 
   profile() {
@@ -51,7 +51,7 @@ export class UserServiceClient {
     return fetch(url, {
         method: 'delete',
       credentials: 'include', // include, same-origin, *omit
-      }).then(response => response.json());
+      });
   }
 
   updateProfile(newProfile) {
