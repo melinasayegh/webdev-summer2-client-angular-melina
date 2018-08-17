@@ -1,13 +1,16 @@
+
 <label>
-  <input (click)="selected(true)"
+  <input (click)="selectedTF(true)"
          name="{{question._id}}"
+         value="true"
          type="radio">
   True
 </label>
 <br/>
 <label>
-  <input (click)="selected(false)"
+  <input (click)="selectedTF(false)"
          name="{{question._id}}"
+         value="false"
          type="radio">
   False
 </label>

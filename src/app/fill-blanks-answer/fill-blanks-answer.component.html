@@ -1,0 +1,9 @@
+<h5>{{answer.description}}</h5>
+<span id="answerText">Your answer: </span>
+<span [ngSwitch]="blank.indexOf('*')"
+      *ngFor="let blank of answer.blanks">
+  <span *ngSwitchCase="-1">{{blank}}</span>
+  <span id="answer" *ngSwitchCase="0">
+    <input readonly [(ngModel)]="answer.blanks[blank]">
+  </span>
+</span>

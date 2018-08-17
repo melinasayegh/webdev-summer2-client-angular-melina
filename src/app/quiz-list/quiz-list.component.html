@@ -6,11 +6,18 @@
   <ul class="list-group">
     <li *ngFor="let quiz of quizzes"
         class="list-group-item">
-      {{quiz.title}}
-      <a class="float-right btn btn-primary"
-         href="/quiz/{{quiz._id}}">
-        Take
-      </a>
+      <b>Quiz:</b> {{quiz.title}}
+      <span class="row float-right btn-span">
+        <button class="btn btn-primary btn-sm col-xs-2 btn-group"
+             (click)="viewSubmissions(quiz._id)">
+          Submissions
+        </button>
+        &nbsp;
+        <button class="btn btn-success btn-sm col-xs-2 btn-group"
+           (click)="takeQuiz(quiz._id)">
+          Take
+        </button>
+      </span>
     </li>
   </ul>
 </div>
