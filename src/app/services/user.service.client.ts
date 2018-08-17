@@ -7,7 +7,7 @@ export class UserServiceClient {
   findUserById(userId) {
     const url = 'http://localhost:3000/api/user/' + userId;
     const HEROKU_URL = 'https://webdev-server-node-melina.herokuapp.com/api/user/' + userId;
-    return fetch(url)
+    return fetch(HEROKU_URL)
       .then(response => response.json());
   }
 
@@ -18,7 +18,7 @@ export class UserServiceClient {
       username: username,
       password: password
     };
-    return fetch(url, {
+    return fetch(HEROKU_URL, {
       method: 'post',
       body: JSON.stringify(user),
       credentials: 'include',
@@ -31,7 +31,7 @@ export class UserServiceClient {
   logout() {
     const url = 'http://localhost:3000/api/logout';
     const HEROKU_URL = 'https://webdev-server-node-melina.herokuapp.com/api/logout';
-    return fetch(url, {
+    return fetch(HEROKU_URL, {
       method: 'post',
       credentials: 'include'
     });
@@ -40,7 +40,7 @@ export class UserServiceClient {
   profile() {
     const url = 'http://localhost:3000/api/profile';
     const HEROKU_URL = 'https://webdev-server-node-melina.herokuapp.com/api/profile';
-    return fetch(url, {
+    return fetch(HEROKU_URL, {
         credentials: 'include', // include, same-origin, *omit
       }).then(response => response.json());
   }
@@ -48,7 +48,7 @@ export class UserServiceClient {
   deleteProfile() {
     const url = 'http://localhost:3000/api/profile';
     const HEROKU_URL = 'https://webdev-server-node-melina.herokuapp.com/api/profile';
-    return fetch(url, {
+    return fetch(HEROKU_URL, {
         method: 'delete',
       credentials: 'include', // include, same-origin, *omit
       });
@@ -57,7 +57,7 @@ export class UserServiceClient {
   updateProfile(newProfile) {
     const url = 'http://localhost:3000/api/profile';
     const HEROKU_URL = 'https://webdev-server-node-melina.herokuapp.com/api/profile';
-    return fetch(url, {
+    return fetch(HEROKU_URL, {
       method: 'put',
       body: JSON.stringify(newProfile),
       credentials: 'include', // include, same-origin, *omit
@@ -67,7 +67,7 @@ export class UserServiceClient {
   createUser(user) {
     const url = 'http://localhost:3000/api/user';
     const HEROKU_URL = 'https://webdev-server-node-melina.herokuapp.com/api/user';
-    return fetch(url, {
+    return fetch(HEROKU_URL, {
       body: JSON.stringify(user),
       credentials: 'include', // include, same-origin, *omit
       method: 'post',
@@ -80,7 +80,7 @@ export class UserServiceClient {
   currentUser() {
     const url = 'http://localhost:3000/api/currentUser';
     const HEROKU_URL = 'https://webdev-server-node-melina.herokuapp.com/api/currentUser';
-    return fetch(url, {
+    return fetch(HEROKU_URL, {
       credentials: 'include'
     })
       .then((response) => (

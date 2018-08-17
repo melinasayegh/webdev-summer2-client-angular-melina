@@ -5,7 +5,7 @@ export class QuizServiceClient {
   createQuiz(quiz) {
     const url = 'http://localhost:3000/api/quiz';
     const HEROKU_URL = 'https://webdev-server-node-melina.herokuapp.com/api/quiz';
-    return fetch(url, {
+    return fetch(HEROKU_URL, {
       method: 'post',
       credentials: 'include',
       headers: {
@@ -16,13 +16,13 @@ export class QuizServiceClient {
   findAllQuizzes() {
     const url = 'http://localhost:3000/api/quiz';
     const HEROKU_URL = 'https://webdev-server-node-melina.herokuapp.com/api/quiz';
-    return fetch(url)
+    return fetch(HEROKU_URL)
       .then(response => response.json());
   }
   findQuizById(quizId) {
     const url = 'http://localhost:3000/api/quiz/';
     const HEROKU_URL = 'https://webdev-server-node-melina.herokuapp.com/api/quiz/';
-    return fetch(url + quizId, {
+    return fetch(HEROKU_URL + quizId, {
       method: 'get',
       credentials: 'include',
       headers: {
@@ -33,7 +33,7 @@ export class QuizServiceClient {
   updateQuiz(quizId, quiz) {
     const url = 'http://localhost:3000/api/quiz/';
     const HEROKU_URL = 'https://webdev-server-node-melina.herokuapp.com/api/quiz/';
-    return fetch(url + quizId, {
+    return fetch(HEROKU_URL + quizId, {
       method: 'put',
       credentials: 'include',
       headers: {
@@ -44,7 +44,7 @@ export class QuizServiceClient {
   deleteQuiz(quizId) {
     const url = 'http://localhost:3000/api/quiz/';
     const HEROKU_URL = 'https://webdev-server-node-melina.herokuapp.com/api/quiz/';
-    return fetch(url + quizId, {
+    return fetch(HEROKU_URL + quizId, {
       method: 'delete',
       credentials: 'include',
       headers: {
