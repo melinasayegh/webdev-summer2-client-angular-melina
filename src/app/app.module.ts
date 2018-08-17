@@ -37,6 +37,7 @@ import { FillBlanksAnswerComponent } from './fill-blanks-answer/fill-blanks-answ
 import { MultipleChoiceAnswerComponent } from './multiple-choice-answer/multiple-choice-answer.component';
 import { TrueFalseAnswerComponent } from './true-false-answer/true-false-answer.component';
 import { SubmissionsComponent } from './submissions/submissions.component';
+import { SubmissionAnswersComponent } from './submission-answers/submission-answers.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { SubmissionsComponent } from './submissions/submissions.component';
     MultipleChoiceAnswerComponent,
     TrueFalseAnswerComponent,
     SubmissionsComponent,
+    SubmissionAnswersComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,16 @@
 <app-header></app-header>
 <div class="container container-fluid navigator-div">
   <h2>Submissions</h2>
+  <h4>Quiz: {{quiz.title}}</h4>
 
   <ul class="list-group">
     <li *ngFor="let submission of submissions" class="list-group-item">
-      Student Username: {{submission.student}}
-      Time Submitted: {{submission.timestamp}}
+      Student Username: {{submission.student.username}}
+      <br/>
+      Time Submitted: {{fixDate(submission.timestamp)}}
+      <a class="btn btn-light btn-sm col-xs-2 btn-group float-right"
+              routerLink="/quiz/{{quizId}}/submission/{{submission._id}}">
+        View Answers</a>
     </li>
   </ul>
 </div>

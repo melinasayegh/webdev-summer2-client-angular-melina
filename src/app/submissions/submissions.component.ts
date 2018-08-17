@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {SubmissionServiceClient} from '../services/submission.service.client';
 import {Submission} from '../models/submission.model.client';
 import {UserServiceClient} from '../services/user.service.client';
+import {QuizServiceClient} from '../services/quiz.service.client';
 
 @Component({
   selector: 'app-submissions',
@@ -12,25 +13,48 @@ import {UserServiceClient} from '../services/user.service.client';
 export class SubmissionsComponent implements OnInit {
 
   quizId = '';
-  submissions: Submission[] = [];
+  quiz = {
+    title: ''
+  };
+  submissions = [{
+      _id: '',
+      student: {
+        username: ''
+      },
+      timestamp: new Date().toLocaleString()
+    }];
   isLoggedIn = false;
   isAdminUser = false;
-  currentUser = {};
+  currentUser = {
+    username: ''
+  };
+  studentSubmissionFiltered = [{
+    _id: '',
+    student: {
+      username: ''
+    },
+    timestamp: new Date().toLocaleString()
+  }];
 
   constructor(private route: ActivatedRoute,
               private router: Router,
+              private quizService: QuizServiceClient,
               private submissionService: SubmissionServiceClient,
               private userService: UserServiceClient) {
   }
 
+  fixDate = (date) => {
+    return new Date(date).toLocaleString();
+  }
+
   loadSubmissions(quizId) {
     this.quizId = quizId;
-
+    this.quizService.findQuizById(quizId).then((quiz) => this.quiz = quiz)
     if (this.isAdminUser) {
-      this.submissionService.loadSubmissionsForQuiz(this.quizId)
+      this.submissionService.loadSubmissionsForQuiz(quizId)
         .then(submissions => this.submissions = submissions);
     } else if (this.isLoggedIn) {
-      this.submissionService.loadSubmissionsForQuizAndStudent(this.quizId)
+      this.submissionService.loadSubmissionsForQuizAndStudent(quizId)
         .then(submissions => this.submissions = submissions);
     } else {
       alert('Please sign in first.');

@@ -1,0 +1,28 @@
+<app-header></app-header>
+<div class="container container-fluid navigator-div">
+  <h2>Submission Answers</h2>
+  <h4>Quiz: {{quiz.title}}</h4>
+  <h4>Submission by {{submission.student.username}} on {{fixDate(submission.timestamp)}}</h4>
+
+  <ul class="list-group">
+    <li *ngFor="let answer of submission.answers" class="list-group-item">
+      <h4>{{answer.question.title}}  -- {{answer.question.points}}</h4>
+      <hr class="half-rule"/>
+      <p>{{answer.question.description}}</p>
+      <div *ngIf="answer.question.questionType === 'ESSAY'">
+        {{answer.essayAnswer}}
+      </div>
+      <div *ngIf="answer.question.questionType === 'TRUE_FALSE'">
+        {{answer.trueFalseAnswer}}
+      </div>
+      <div *ngIf="answer.question.questionType === 'MULTIPLE_CHOICE'">
+        Chosen Answer: {{answer.multipleChoiceAnswer}}
+      </div>
+      <div *ngIf="answer.question.questionType === 'FILL_BLANKS'">
+        <div *ngFor="let blankAnswer of answer.blanksAnswer">
+          {{blankAnswer}}
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

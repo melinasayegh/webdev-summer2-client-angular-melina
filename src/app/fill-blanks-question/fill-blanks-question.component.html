@@ -7,6 +7,6 @@
   <span *ngSwitchCase="0">
     <input [(ngModel)]="question.blanksAnswer[blank.split('=')[0].replace('*','')]"
            placeholder="{{blank.split('=')[0].replace('*','')}}"
-           style="border-color:black">
+           class="border">
   </span>
 </span>
